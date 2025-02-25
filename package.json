@@ -24,6 +24,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
+    "react-infinite-logo-slider": "^1.1.4",
     "sharp": "^0.33.5",
     "strtok3": "^6.3.0",
     "swiper": "^11.2.1"

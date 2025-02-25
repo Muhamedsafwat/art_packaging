@@ -27,21 +27,15 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden lg:flex space-x-6">
-          <Link href="/" className="hover:text-[#d4af37] mt-2">
-            Home
-          </Link>
-          <Link href="/about" className="hover:text-[#d4af37] mt-2">
-            About Us
-          </Link>
-          <Link href="/services" className="hover:text-[#d4af37] mt-2">
-            Our Services
-          </Link>
-          <Link href="/products" className="hover:text-[#d4af37] mt-2">
-            Our Products
-          </Link>
-          <Link href="/contact" className="hover:text-[#d4af37] mt-2">
-            Contact Us
-          </Link>
+          {links.map((link, index) => (
+            <Link
+              key={`navbar_link_${index}`}
+              href={link.href}
+              className="hover:text-primary mt-2 text-lg"
+            >
+              {link.label}
+            </Link>
+          ))}
           <button
             onClick={toggleLanguage}
             className={`px-4 py-2 rounded-md ml-5 flex items-center space-x-2 ${
@@ -103,42 +97,16 @@ export default function Navbar() {
             Logo
           </Link>
 
-          <Link
-            href="/"
-            className="hover:text-[#d4af37] font-bold text-2xl"
-            onClick={toggleSidebar}
-          >
-            Home
-          </Link>
-          <Link
-            href="/about"
-            className="hover:text-[#d4af37] font-bold text-2xl"
-            onClick={toggleSidebar}
-          >
-            About Us
-          </Link>
-          <Link
-            href="/services"
-            className="hover:text-[#d4af37] font-bold text-2xl"
-            onClick={toggleSidebar}
-          >
-            Our Services
-          </Link>
-          <Link
-            href="/products"
-            className="hover:text-[#d4af37] font-bold text-2xl"
-            onClick={toggleSidebar}
-          >
-            Our Products
-          </Link>
-          <Link
-            href="/contact"
-            className="hover:text-[#d4af37] font-bold text-2xl"
-            onClick={toggleSidebar}
-          >
-            Contact Us
-          </Link>
-
+          {links.map((link, index) => (
+            <Link
+              key={`mobile_navbar_link_${index}`}
+              href={link.href}
+              className="hover:text-[#d4af37] font-bold text-2xl"
+              onClick={toggleSidebar}
+            >
+              {link.label}
+            </Link>
+          ))}
           <div className="flex space-x-6">
             <FaWhatsapp
               className="text-4xl cursor-pointer hover:text-[#d4af37]"
@@ -171,3 +139,11 @@ export default function Navbar() {
     </nav>
   );
 }
+
+const links = [
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "Our Services", href: "/services" },
+  { label: "Our Products", href: "/products" },
+  { label: "Contact Us", href: "/contact" },
+];
