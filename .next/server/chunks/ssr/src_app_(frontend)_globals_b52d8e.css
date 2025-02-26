@@ -477,6 +477,10 @@ img, video {
   height: 100%;
 }
 
+.h-\[1px\] {
+  height: 1px;
+}
+
 .max-h-full {
   max-height: 100%;
 }

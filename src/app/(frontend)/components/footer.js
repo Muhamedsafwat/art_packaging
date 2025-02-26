@@ -31,7 +31,7 @@ export default function Footer({ locale }) {
 
   return (
     <footer className="bg-[#2F2E35] text-white py-16 px-8 mt-auto block relative">
-      <div className="absolute top-0 left-0 w-full h-1 bg-white"></div>
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-white"></div>
 
       <div className="container mx-auto flex flex-col items-center text-center space-y-6">
         <div className="flex flex-wrap justify-center gap-6 text-lg">
