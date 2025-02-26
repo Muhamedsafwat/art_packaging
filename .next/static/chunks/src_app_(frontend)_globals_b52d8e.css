@@ -457,12 +457,12 @@ img, video {
   aspect-ratio: 1;
 }
 
-.h-1 {
-  height: .25rem;
-}
-
 .h-5 {
   height: 1.25rem;
+}
+
+.h-\[1px\] {
+  height: 1px;
 }
 
 .h-\[80vh\] {
@@ -475,10 +475,6 @@ img, video {
 
 .h-full {
   height: 100%;
-}
-
-.h-\[1px\] {
-  height: 1px;
 }
 
 .max-h-full {

@@ -1,7 +1,4 @@
 {
-  "/(frontend)/[locale]/page": "app/(frontend)/[locale]/page.js",
-  "/(frontend)/[locale]/about/page": "app/(frontend)/[locale]/about/page.js",
-  "/(frontend)/[locale]/services/page": "app/(frontend)/[locale]/services/page.js",
-  "/(frontend)/[locale]/products/page": "app/(frontend)/[locale]/products/page.js",
-  "/(frontend)/[locale]/contact/page": "app/(frontend)/[locale]/contact/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/(frontend)/[locale]/page": "app/(frontend)/[locale]/page.js"
 }
