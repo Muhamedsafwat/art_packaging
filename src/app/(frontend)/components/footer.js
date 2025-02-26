@@ -2,14 +2,17 @@
 
 import Link from "next/link";
 import { FaWhatsapp, FaMapMarkerAlt, FaEnvelope } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 export default function Footer({ locale }) {
+  const t = useTranslations("Navbar"); // استخدام الترجمة للروابط
+
   const links = [
-    { label: "Home", href: `/${locale}/` },
-    { label: "About", href: `/${locale}/about` },
-    { label: "Services", href: `/${locale}/services` },
-    { label: "Products", href: `/${locale}/products` },
-    { label: "Contact", href: `/${locale}/contact` },
+    { label: t("home"), href: `/${locale}/` },
+    { label: t("about"), href: `/${locale}/about` },
+    { label: t("services"), href: `/${locale}/services` },
+    { label: t("products"), href: `/${locale}/products` },
+    { label: t("contact"), href: `/${locale}/contact` },
   ];
 
   const handleWhatsAppClick = () => {
@@ -27,8 +30,10 @@ export default function Footer({ locale }) {
   };
 
   return (
-    <footer className="bg-[#2F2E35] text-white p-12 mt-auto block">
-      <div className="container mx-auto flex flex-col items-center text-center space-y-4">
+    <footer className="bg-[#2F2E35] text-white py-16 px-8 mt-auto block relative">
+      <div className="absolute top-0 left-0 w-full h-1 bg-white"></div>
+
+      <div className="container mx-auto flex flex-col items-center text-center space-y-6">
         <div className="flex flex-wrap justify-center gap-6 text-lg">
           {links.map((link, index) => (
             <Link
@@ -41,20 +46,22 @@ export default function Footer({ locale }) {
           ))}
         </div>
 
-        <div className="flex gap-6 text-3xl mt-4">
+        <div className="flex gap-8 text-3xl mt-6">
           <FaWhatsapp
             className="cursor-pointer hover:text-[#d4af37] transition-colors duration-300"
             onClick={handleWhatsAppClick}
-          />
-          <FaMapMarkerAlt
-            className="cursor-pointer hover:text-[#d4af37] transition-colors duration-300"
-            onClick={handleMapClick}
           />
           <FaEnvelope
             className="cursor-pointer hover:text-[#d4af37] transition-colors duration-300"
             onClick={handleEmailClick}
           />
+          <FaMapMarkerAlt
+            className="cursor-pointer hover:text-[#d4af37] transition-colors duration-300"
+            onClick={handleMapClick}
+          />
         </div>
+
+        <p className="text-white text-sm mt-6 opacity-80">@copy2025</p>
       </div>
     </footer>
   );
