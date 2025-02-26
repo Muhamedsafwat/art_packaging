@@ -41,7 +41,9 @@ export default function Navbar({ locale }) {
           Logo
         </Link>
 
-        <div className="hidden lg:flex gap-x-10">
+        <div
+          className={`hidden lg:flex ${locale === "en" ? "space-x-10" : "gap-10"}`}
+        >
           {links.map((link, index) => (
             <Link
               key={`navbar_link_${index}`}
