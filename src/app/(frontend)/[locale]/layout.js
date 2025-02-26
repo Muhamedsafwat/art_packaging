@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Cairo } from "next/font/google";
 import Navbar from "../components/Navbar";
 import "../globals.css";
+import Footer from "../components/footer";
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -21,10 +22,13 @@ export default async function LocaleLayout({ children, params }) {
 
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
-      <body className="antialiased bg-[#2F2E35] w-screen overflow-x-hidden">
+      <body
+        className={`antialiased bg-[#2F2E35] w-screen overflow-x-hidden flex flex-col min-h-screen ${cairo.variable}`}
+      >
         <NextIntlClientProvider messages={messages}>
           <Navbar locale={locale} />
-          {children}
+          <main className="flex-grow">{children}</main>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
