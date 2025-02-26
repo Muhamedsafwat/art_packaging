@@ -1,7 +1,7 @@
 "use client";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
-import Certificates from "../../components/about/Certificate";
+import Certificates from "../../_components/about/Certificate";
 
 export default function About() {
   const t = useTranslations("About");

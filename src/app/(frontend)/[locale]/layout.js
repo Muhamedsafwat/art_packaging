@@ -2,9 +2,9 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Cairo } from "next/font/google";
-import Navbar from "../components/Navbar";
+import Navbar from "../_components/Navbar";
 import "../globals.css";
-import Footer from "../components/footer";
+import Footer from "../_components/footer";
 
 const cairo = Cairo({
   variable: "--font-cairo",

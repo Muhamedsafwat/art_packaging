@@ -7,12 +7,12 @@ const images = Array.from(
   { length: 15 },
   (_, i) => `/slider_images/${i + 1}.webp`
 );
-const ImageSlider = () => {
+const ImageSlider = ({ locale }) => {
   return (
-    <section className="mt-12 w-screen h-[80vh] overflow-x-hidden">
+    <section dir="ltr" className="mt-12 w-screen h-[80vh] overflow-x-hidden">
       <Image
         alt="we care so we create"
-        src="/logos/slider_logo.svg"
+        src={`/logos/slider_logo_${locale}.svg`}
         width={550}
         height={550}
         className="mx-auto"

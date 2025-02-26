@@ -1,9 +1,12 @@
-import ImageSlider from "../components/ImageSlider";
-export default function Home() {
+import ImageSlider from "../_components/ImageSlider";
+export default async function Home({ params }) {
+  const { locale } = await params;
+  if (!["en", "ar"].includes(locale)) {
+    notFound();
+  }
   return (
     <main>
-      <ImageSlider />
-      {/* More content goes here */}
+      <ImageSlider locale={locale} />
     </main>
   );
 }
