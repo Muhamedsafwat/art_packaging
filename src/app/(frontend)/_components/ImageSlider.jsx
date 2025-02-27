@@ -2,7 +2,6 @@
 import Slider from "react-infinite-logo-slider";
 import Image from "next/image";
 
-//images paths
 const images = Array.from(
   { length: 15 },
   (_, i) => `/slider_images/${i + 1}.webp`

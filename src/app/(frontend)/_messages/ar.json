@@ -22,5 +22,13 @@
     "Message": "الرسالة",
     "Submit": "ارسال الان",
     "Email": "الاميل"
+  },
+  "LetsWork": {
+    "First": "اعمل معنا",
+    "Second": "الان",
+    "Button": "انقر هنا"
+  },
+  "SucessPartner": {
+    "Title": "شركاء النجاح"
   }
 }

@@ -22,5 +22,13 @@
     "Message": "Message",
     "Submit": "Submit",
     "Email": "Email"
+  },
+  "LetsWork": {
+    "First": "LET’S WORK",
+    "Second": "TOGETHER",
+    "Button": "Click Here"
+  },
+  "SucessPartner": {
+    "Title": "Success Partners"
   }
 }
