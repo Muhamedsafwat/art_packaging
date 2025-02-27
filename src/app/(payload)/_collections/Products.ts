@@ -1,68 +1,39 @@
 import { CollectionConfig } from "payload";
-import {
-  BlocksFeature,
-  LinkFeature,
-  UploadFeature,
-  lexicalEditor,
-} from "@payloadcms/richtext-lexical";
 
 const Products: CollectionConfig = {
-  access: {
-    read: () => true,
-  },
   slug: "products",
+  labels: {
+    singular: "Product",
+    plural: "Products",
+  },
   admin: {
-    useAsTitle: "title",
+    useAsTitle: "descriptionEn", // Display English description in the admin panel
+    group: "Products",
   },
   fields: [
     {
-      type: "row",
+      name: "images",
+      type: "array",
+      label: "Product Images",
       fields: [
         {
-          name: "title",
-          type: "text",
+          name: "image",
+          type: "relationship",
+          relationTo: "media", // Assuming images are stored in a media collection
           required: true,
         },
       ],
     },
     {
-      name: "category",
-      type: "select",
-      admin: {
-        position: "sidebar",
-      },
-      required: true,
-      options: [
-        { label: "Poultry", value: "poultry" },
-        { label: "Cattle", value: "cattle" },
-        { label: "Bets", value: "bets" },
-      ],
-    },
-    {
-      name: "isHighlighted",
-      type: "checkbox",
-      admin: {
-        position: "sidebar",
-      },
-    },
-    {
-      name: "image",
-      type: "upload",
-      relationTo: "media", // Assuming you have a media collection for uploads
-      required: true,
-    },
-    {
-      name: "preview",
+      name: "descriptionAr",
       type: "textarea",
-      admin: {
-        placeholder:
-          "A breif description to show on the product card, about 15 - 20 words for the best appearance",
-      },
+      label: "Description (Arabic)",
+      required: true,
     },
     {
-      name: "description",
-      type: "richText",
-      editor: lexicalEditor({}),
+      name: "descriptionEn",
+      type: "textarea",
+      label: "Description (English)",
       required: true,
     },
   ],

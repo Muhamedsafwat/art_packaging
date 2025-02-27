@@ -2,14 +2,19 @@ import sharp from "sharp";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { buildConfig } from "payload";
+import Media from "@/app/(payload)/_collections/Media";
+import SlidersImages from "@/app/(payload)/_collections/SlidersImages";
+import Services from "@/app/(payload)/_collections/Services";
+import Categories from "@/app/(payload)/_collections/Categories";
+import Products from "@/app/(payload)/_collections/Products";
 
 export default buildConfig({
   // If you'd like to use Rich Text, pass your editor here
   editor: lexicalEditor(),
 
   // Define and configure your collections in this array
-  collections: [],
-
+  collections: [Media, Services, Categories, Products],
+  globals: [SlidersImages],
   // Your Payload secret - should be a complex and secure string, unguessable
   secret: process.env.PAYLOAD_SECRET || "joisdjf98wwe09",
   // Whichever Database Adapter you're using should go here
