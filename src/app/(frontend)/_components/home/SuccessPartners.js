@@ -13,7 +13,6 @@ const SuccessPartners = () => {
   const { locale } = useParams();
   const t = useTranslations("SucessPartner");
 
-  // Ref for Swiper
   const swiperRef = useRef(null);
 
   return (
