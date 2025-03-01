@@ -10,7 +10,6 @@ export default function middleware(req: NextRequest) {
     return NextResponse.redirect(new URL("/ar", req.url));
   }
 
-  // Otherwise, proceed with next-intl middleware
   return intlMiddleware(req);
 }
 

@@ -43,7 +43,7 @@ const OurService = () => {
   return (
     <section
       id="services"
-      className="flex flex-col items-center text-center px-12 py-24"
+      className="flex flex-col items-center text-center -mt-28"
     >
       <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6">
         {t("Title")}
