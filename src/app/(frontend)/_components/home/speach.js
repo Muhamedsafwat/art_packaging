@@ -6,7 +6,7 @@ const Speach = () => {
   const t = useTranslations("Speach");
   const { locale } = useParams();
   return (
-    <div className="h-screen flex flex-col justify-center items-center ">
+    <div className="h-screen flex flex-col justify-center items-center mt-32 ">
       <div className="flex flex-col md:flex-row justify-center items-center mt-auto gap-8">
         {locale === "en" ? (
           <div className=" flex flex-col justify-center px-4">

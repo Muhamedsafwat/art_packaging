@@ -30,7 +30,7 @@ export default function Navbar({ locale }) {
     { label: t("home"), href: `/${locale}/` },
     { label: t("about"), href: `/${locale}/about` },
     { label: t("services"), href: `/${locale}/#services` },
-    { label: t("products"), href: `/${locale}/products` },
+    { label: t("products"), href: `/${locale}/#products` },
     { label: t("contact"), href: `/${locale}/contact` },
   ];
 
