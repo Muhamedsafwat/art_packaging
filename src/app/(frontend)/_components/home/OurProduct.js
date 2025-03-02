@@ -28,14 +28,12 @@ const OurProduct = () => {
       <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#939396] lg:max-w-xlg mt-5">
         {t("Des")}
       </p>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-x-5 gap-y-5 w-max mx-auto mt-5">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-x-5 gap-y-5 w-max mx-auto mt-5 place-items-start">
         {items.map((item, index) => (
           <div
             key={index}
-            className={`w-[400px] overflow-hidden transition-transform duration-300 ease-in-out hover:scale-105 ${
-              index % 2 === 0 ? "h-[400px] " : "h-[250px] "
-            }`}
-            style={index % 2 !== 0 ? { flexGrow: 10 } : {}}
+            className={`w-[400px] overflow-hidden transition-transform duration-300 ease-in-out hover:scale-105
+               h-[400px] even:h-[70%] ${index > 3 && "odd:-translate-y-[30%]"}`}
           >
             <img
               src={item.image}
