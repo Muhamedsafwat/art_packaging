@@ -117,8 +117,8 @@ const OurProduct = () => {
           ref={swiperRef}
           modules={[Navigation]}
           navigation={{
-            prevEl: ".swiper-button-next",
-            nextEl: ".swiper-button-prev",
+            prevEl: ".swiper-button-prev",
+            nextEl: ".swiper-button-next",
           }}
           onSlideChange={(swiper) => setPage(swiper.activeIndex)}
           initialSlide={page}
@@ -157,7 +157,13 @@ const OurProduct = () => {
                     ))}
                 </div>
 
-                <div className="absolute bottom-10 left-1/2 transform  z-100 flex space-x-4">
+                <div
+                  className={`absolute bottom-10 left-1/2 transform z-100 flex space-x-4 ${
+                    items.length < 5
+                      ? "opacity-0 pointer-events-none"
+                      : "opacity-100"
+                  } transition-opacity duration-300`}
+                >
                   <div className="swiper-button-next !text-white !w-12 !h-12 !rounded-full"></div>
                   <div className="swiper-button-prev !text-white !w-12 !h-12 !rounded-full"></div>
                 </div>
