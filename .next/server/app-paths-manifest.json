@@ -1,5 +1,4 @@
 {
   "/(frontend)/[locale]/page": "app/(frontend)/[locale]/page.js",
-  "/(frontend)/[locale]/contact/page": "app/(frontend)/[locale]/contact/page.js",
-  "/(payload)/api/sendMail/route": "app/(payload)/api/sendMail/route.js"
+  "/_not-found/page": "app/_not-found/page.js"
 }

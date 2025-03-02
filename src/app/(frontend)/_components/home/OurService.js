@@ -43,7 +43,7 @@ const OurService = () => {
   return (
     <section
       id="services"
-      className="flex flex-col items-center text-center -mt-28"
+      className="flex flex-col items-center text-center sm:-mt-28 mr-7"
     >
       <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6">
         {t("Title")}
@@ -52,7 +52,7 @@ const OurService = () => {
         {t("Des")}
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 max-w-screen-xl mx-auto ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 max-w-screen-xl  ml-4 ">
         {service.map((s, index) => (
           <div
             key={index}

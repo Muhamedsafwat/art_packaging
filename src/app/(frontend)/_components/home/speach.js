@@ -6,10 +6,10 @@ const Speach = () => {
   const t = useTranslations("Speach");
   const { locale } = useParams();
   return (
-    <div className="h-screen flex flex-col justify-center items-center mt-32 ">
-      <div className="flex flex-col md:flex-row justify-center items-center mt-auto gap-8">
+    <div className="h-screen flex flex-col justify-center items-center mt-16">
+      <div className="flex flex-col md:flex-row justify-center items-center  gap-8">
         {locale === "en" ? (
-          <div className=" flex flex-col justify-center px-4">
+          <div className=" flex flex-col justify-center">
             <p className="text-white text-lg leading-snug text-center">
               <span className="block">Fashion also has a special world</span>
               <span className="block">

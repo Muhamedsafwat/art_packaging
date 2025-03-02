@@ -13,9 +13,7 @@ const intlMiddleware = createMiddleware({
 export default function middleware(req) {
   console.log("Middleware activated for:", req.nextUrl.pathname);
 
-  // If the user visits "/", redirect to "/ar"
   if (req.nextUrl.pathname === "/") {
-    console.log("Redirecting to /ar");
     return NextResponse.redirect(new URL("/ar", req.url));
   }
 
