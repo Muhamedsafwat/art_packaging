@@ -19,7 +19,7 @@ const OurProduct = () => {
 
   return (
     <div
-      className="flex flex-col justify-center text-center mt-10"
+      className="flex flex-col justify-center text-center mt-12"
       id="products"
     >
       <p className="text-white font-[900] lg:text-6xl md:text-5xl">
@@ -28,7 +28,7 @@ const OurProduct = () => {
       <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#939396] lg:max-w-xlg mt-5">
         {t("Des")}
       </p>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-x-5 gap-y-5 w-max mx-auto mt-5 place-items-start">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-x-5 gap-y-5 w-max mx-auto mt-7 place-items-start">
         {items.map((item, index) => (
           <div
             key={index}

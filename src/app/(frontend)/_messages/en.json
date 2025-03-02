@@ -21,7 +21,9 @@
     "Phone": "Phone Number",
     "Message": "Message",
     "Submit": "Submit",
-    "Email": "Email"
+    "Email": "Email",
+    "SuccessMessage": "Message sent successfully!",
+    "ErrorMessage": "SomeThing Is Wrong Try Again Later"
   },
   "LetsWork": {
     "First": "LET’S WORK",

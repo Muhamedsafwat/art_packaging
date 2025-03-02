@@ -2,14 +2,68 @@
 
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
+import { useState, useEffect } from "react";
 
 const ContactUsForm = () => {
   const t = useTranslations("contact");
   const { locale } = useParams();
   const isArabic = locale === "ar";
 
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState({ message: "", type: "" });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus({ message: "", type: "" });
+
+    try {
+      const response = await fetch("/api/sendMail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        setStatus({ message: t("SuccessMessage"), type: "success" });
+        setFormData({ name: "", phone: "", email: "", message: "" });
+      } else {
+        setStatus({
+          message: result.error || "Failed to send message.",
+          type: "error",
+        });
+      }
+    } catch (error) {
+      setStatus({ message: t("ErrorMessage"), type: "error" });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (status.message) {
+      const timeout = setTimeout(
+        () => setStatus({ message: "", type: "" }),
+        5000
+      );
+      return () => clearTimeout(timeout);
+    }
+  }, [status]);
+
   return (
     <form
+      onSubmit={handleSubmit}
       className={`p-6 rounded-lg shadow-lg w-full max-w-2xl md:max-w-lg lg:max-w-xl bg-white ${
         isArabic ? "text-right" : "text-left"
       }`}
@@ -23,7 +77,9 @@ const ContactUsForm = () => {
         {["Name", "Phone", "Email", "Message"].map((field, index) => (
           <div key={index} className="relative w-full">
             <label
-              className={`absolute -top-3 ${isArabic ? "right-3" : "left-3"} bg-white px-2 text-[#B9A14C] font-semibold text-sm`}
+              className={`absolute -top-3 ${
+                isArabic ? "right-3" : "left-3"
+              } bg-white px-2 text-[#B9A14C] font-semibold text-sm`}
             >
               {t(field)}
             </label>
@@ -36,12 +92,20 @@ const ContactUsForm = () => {
                       ? "tel"
                       : "text"
                 }
+                name={field.toLowerCase()}
+                value={formData[field.toLowerCase()]}
+                onChange={handleChange}
+                required
                 className="w-full p-3 bg-white text-gray-800 border border-gray-300 rounded-md outline-none 
                 focus:ring-2 focus:ring-[#B9A14C] hover:shadow-md transition-all"
               />
             ) : (
               <textarea
-                rows="4"
+                name="message"
+                rows={4}
+                value={formData.message}
+                onChange={handleChange}
+                required
                 className="w-full p-3 bg-white text-gray-800 border border-gray-300 rounded-md outline-none 
                 focus:ring-2 focus:ring-[#B9A14C] hover:shadow-md transition-all resize-none"
               ></textarea>
@@ -53,10 +117,21 @@ const ContactUsForm = () => {
       <button
         type="submit"
         className="bg-[#B9A14C] mt-5 flex justify-center p-4 text-white font-bold rounded-md shadow-md 
-        hover:bg-opacity-90 hover:shadow-lg transition-all w-full"
+        hover:bg-opacity-90 hover:shadow-lg transition-all w-full disabled:opacity-50 disabled:cursor-not-allowed"
+        disabled={loading}
       >
-        {t("Submit")}
+        {loading ? "Sending..." : t("Submit")}
       </button>
+
+      {status.message && (
+        <p
+          className={`mt-4 text-center text-sm font-semibold ${
+            status.type === "success" ? "text-green-600" : "text-red-600"
+          }`}
+        >
+          {status.message}
+        </p>
+      )}
     </form>
   );
 };
