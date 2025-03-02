@@ -12,29 +12,17 @@ const SlidersImages: GlobalConfig = {
   fields: [
     {
       name: "partners",
-      type: "array",
+      type: "relationship",
       label: "Partners Images",
-      fields: [
-        {
-          name: "image",
-          type: "relationship",
-          relationTo: "media",
-          required: true,
-        },
-      ],
+      relationTo: "media",
+      hasMany: true,
     },
     {
       name: "sliderImages",
-      type: "array",
+      type: "relationship",
       label: "Slider Images",
-      fields: [
-        {
-          name: "image",
-          type: "relationship",
-          relationTo: "media",
-          required: true,
-        },
-      ],
+      relationTo: "media",
+      hasMany: true,
     },
   ],
 };

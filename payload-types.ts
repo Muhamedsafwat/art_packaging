@@ -379,18 +379,8 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface SlidersImage {
   id: string;
-  partners?:
-    | {
-        image: string | Media;
-        id?: string | null;
-      }[]
-    | null;
-  sliderImages?:
-    | {
-        image: string | Media;
-        id?: string | null;
-      }[]
-    | null;
+  partners?: (string | Media)[] | null;
+  sliderImages?: (string | Media)[] | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -399,18 +389,8 @@ export interface SlidersImage {
  * via the `definition` "sliders-images_select".
  */
 export interface SlidersImagesSelect<T extends boolean = true> {
-  partners?:
-    | T
-    | {
-        image?: T;
-        id?: T;
-      };
-  sliderImages?:
-    | T
-    | {
-        image?: T;
-        id?: T;
-      };
+  partners?: T;
+  sliderImages?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

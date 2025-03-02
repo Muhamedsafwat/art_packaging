@@ -53,42 +53,6 @@ const OurProduct = () => {
       TitleEn: "Soft Carton",
       Title: "علب كرتون انفركوتيد",
     },
-    {
-      id: 7,
-      image: "/OurProducts/4.webp",
-      TitleEn: "Cardboard Boxes",
-      Title: "علب مفتوحة",
-    },
-    {
-      id: 8,
-      image: "/OurProducts/4.webp",
-      TitleEn: "Cardboard Boxes",
-      Title: "علب مفتوحة",
-    },
-    {
-      id: 9,
-      image: "/OurProducts/4.webp",
-      TitleEn: "Cardboard Boxes",
-      Title: "علب مفتوحة",
-    },
-    {
-      id: 10,
-      image: "/OurProducts/4.webp",
-      TitleEn: "Cardboard Boxes",
-      Title: "علب مفتوحة",
-    },
-    {
-      id: 11,
-      image: "/OurProducts/4.webp",
-      TitleEn: "Cardboard Boxes",
-      Title: "علب مفتوحة",
-    },
-    {
-      id: 12,
-      image: "/OurProducts/4.webp",
-      TitleEn: "Cardboard Boxes",
-      Title: "علب مفتوحة",
-    },
   ];
 
   const totalPages = Math.ceil(items.length / itemsPerPage);

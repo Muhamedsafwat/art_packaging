@@ -1,5 +1,28 @@
 {
-  "node": {},
+  "node": {
+    "60ca7aabbfc80e0eb8290c8da2f2e6095267bc1e33": {
+      "workers": {
+        "app/(payload)/admin/[[...segments]]/page": {
+          "moduleId": "[project]/.next-internal/server/app/(payload)/admin/[[...segments]]/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(payload)/layout.tsx [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/node_modules/@payloadcms/next/dist/layouts/Root/index.js [app-rsc] (ecmascript)\" } [app-rsc] (ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(payload)/admin/[[...segments]]/page": "rsc"
+      }
+    },
+    "409ae22ec1aab87516f9e2c1f20c8fa82d01784dd7": {
+      "workers": {
+        "app/(payload)/admin/[[...segments]]/page": {
+          "moduleId": "[project]/.next-internal/server/app/(payload)/admin/[[...segments]]/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/(payload)/layout.tsx [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/node_modules/@payloadcms/next/dist/layouts/Root/index.js [app-rsc] (ecmascript)\" } [app-rsc] (ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(payload)/admin/[[...segments]]/page": "rsc"
+      }
+    }
+  },
   "edge": {},
-  "encryptionKey": "5nm5k6lssAqTPst9TtR6+uJ98qj0gBE3pboRFJ1K2ug="
+  "encryptionKey": "YfQsiT/sDCnCXH+V5mkswCQE4GI0wESDgEBDPL7W7pE="
 }
