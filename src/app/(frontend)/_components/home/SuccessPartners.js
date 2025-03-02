@@ -6,14 +6,47 @@ import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const SuccessPartners = () => {
-  const images = Array.from({ length: 20 }, (_, i) => `/Partners/${i + 1}.png`);
   const { locale } = useParams();
   const t = useTranslations("SucessPartner");
-
   const swiperRef = useRef(null);
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "http://localhost:3000/api/globals/sliders-images"
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const data = await response.json();
+
+        const partners = data.sliderImages || [];
+        const imageUrls = partners.map((partner) => partner.url);
+        setImages(imageUrls);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <div className="flex flex-col items-center justify-center mt-20">
@@ -42,7 +75,7 @@ const SuccessPartners = () => {
               >
                 <img
                   src={src}
-                  alt={`Image ${index + 1}`}
+                  alt={`Partner ${index + 1}`}
                   className="w-[100px] h-[100px] object-contain rounded-lg transition-transform"
                 />
               </SwiperSlide>

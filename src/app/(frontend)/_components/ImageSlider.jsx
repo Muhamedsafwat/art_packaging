@@ -1,12 +1,26 @@
 "use client";
 import Slider from "react-infinite-logo-slider";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
-const images = Array.from(
-  { length: 15 },
-  (_, i) => `/slider_images/${i + 1}.webp`
-);
 const ImageSlider = ({ locale }) => {
+  const [images, setImages] = useState([])
+  const fetchData = async() => {
+    try{
+
+      const res = await fetch("http://localhost:3000/api/globals/sliders-images/")
+      const data = await res.json()
+      console.log(data);
+      
+      setImages(data.partners)
+    } catch(error) {
+      console.log(error);
+    }
+    
+  }
+  useEffect(() => {
+    fetchData()
+  }, [])
   return (
     <section dir="ltr" className="mt-12 w-screen h-[80vh] overflow-x-hidden">
       <Image
@@ -25,10 +39,10 @@ const ImageSlider = ({ locale }) => {
         >
           {images.map((image, index) => (
             <Slider.Slide
-              key={`sliderhttp://localhost:3000/slider_images/2.webp_img_${index}`}
+              key={index}
             >
               <img
-                src={image}
+                src={image.url}
                 alt="slider_image"
                 className="w-60 aspect-square rounded-[30px] mx-5"
               />
