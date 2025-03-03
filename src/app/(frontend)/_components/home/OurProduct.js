@@ -14,50 +14,25 @@ const OurProduct = () => {
   const [page, setPage] = useState(0);
   const itemsPerPage = 6;
   const swiperRef = useRef(null);
-
+  const [items, setItems] = useState([]);
   const { locale } = useParams();
-  const items = [
-    {
-      id: 1,
-      image: "/OurProducts/1.webp",
-      TitleEn: "Open Boxes",
-      Title: "علب مفتوحة",
-    },
-    {
-      id: 2,
-      image: "/OurProducts/2.webp",
-      TitleEn: "Packages For You",
-      Title: "طرود من اجلكم",
-    },
-    {
-      id: 3,
-      image: "/OurProducts/3.webp",
-      TitleEn: "New Luxury Box",
-      Title: "علب جديدة فاخرة",
-    },
-    {
-      id: 6,
-      image: "/OurProducts/4.webp",
-      TitleEn: "Luxury Boxes Book",
-      Title: "علب كتاب هارد كفر فاخرة",
-    },
-    {
-      id: 5,
-      image: "/OurProducts/5.webp",
-      TitleEn: "Cardboard Boxes",
-      Title: "علبة هاردج كفر فاخرة",
-    },
-    {
-      id: 4,
-      image: "/OurProducts/6.webp",
-      TitleEn: "Soft Carton",
-      Title: "علب كرتون انفركوتيد",
-    },
-  ];
-
   const totalPages = Math.ceil(items.length / itemsPerPage);
-
   useEffect(() => {
+    async function fetchData() {
+      try {
+        const fetchCategories = await fetch(
+          "http://localhost:3000/api/categories"
+        );
+        const data = await fetchCategories.json();
+
+        setItems(data.docs || []);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    }
+
+    fetchData();
+
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.navigation.init();
       swiperRef.current.swiper.navigation.update();
@@ -103,7 +78,7 @@ const OurProduct = () => {
          lg:h-[400px] lg:even:h-[70%] ${index > 3 && "lg:odd:-translate-y-[30%]"}`}
                       >
                         <img
-                          src={item.image}
+                          src={item.thumbnail.url}
                           alt={`Image ${item.id}`}
                           className="w-full h-full object-cover"
                         />
@@ -115,7 +90,7 @@ const OurProduct = () => {
     transition-all duration-500 ease-out 
     scale-90 hover:scale-100"
                         >
-                          {locale === "en" ? item.TitleEn : item.Title}
+                          {locale === "en" ? item.titleEn : item.titleAr}
                         </button>
                       </div>
                     ))}
@@ -123,7 +98,7 @@ const OurProduct = () => {
 
                 <div
                   className={`absolute bottom-10 left-1/2 transform z-100 flex space-x-4 ${
-                    items.length < 5
+                    items.length < 7
                       ? "opacity-0 pointer-events-none"
                       : "opacity-100"
                   } transition-opacity duration-300`}
