@@ -178,6 +178,7 @@ export interface Product {
         id?: string | null;
       }[]
     | null;
+  category?: (string | null) | Category;
   descriptionAr: string;
   descriptionEn: string;
   updatedAt: string;
@@ -321,6 +322,7 @@ export interface ProductsSelect<T extends boolean = true> {
         image?: T;
         id?: T;
       };
+  category?: T;
   descriptionAr?: T;
   descriptionEn?: T;
   updatedAt?: T;

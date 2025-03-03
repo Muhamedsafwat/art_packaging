@@ -25,6 +25,11 @@ const Products: CollectionConfig = {
       ],
     },
     {
+      name: "category",
+      type: "relationship",
+      relationTo: "categories", // Assuming categories are stored in a categories collection
+    },
+    {
       name: "descriptionAr",
       type: "textarea",
       label: "Description (Arabic)",
