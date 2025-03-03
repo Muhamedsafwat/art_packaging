@@ -24,7 +24,6 @@ const OurService = () => {
         const data = await response.json();
 
         setServices(data.docs);
-        console.log(data);
       } catch (error) {
         setError(error.message);
       } finally {

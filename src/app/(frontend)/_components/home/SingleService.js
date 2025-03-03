@@ -5,6 +5,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const SingleService = ({ service, onClose }) => {
+  console.log(service);
+
   const { locale } = useParams();
   const t = useTranslations("Service");
 
@@ -25,17 +27,17 @@ const SingleService = ({ service, onClose }) => {
           x
         </button>
         <Image
-          src={service.image}
-          alt={service.title[locale]}
+          src={service.icon.url}
+          alt={""}
           width={200}
           height={200}
           className="mx-auto rounded-md object-cover"
         />
         <h3 className="text-2xl mt-4 font-bold text-[#B9A14C]">
-          {service.title[locale]}
+          {locale === "en" ? service.titleEn : service.titleAr}
         </h3>
         <p className="text-sm text-left text-gray-300 mt-2 font-semibold leading-[26px]">
-          {service.description[locale]}
+          {locale === "en" ? service.descriptionEn : service.descriptionAr}
         </p>
       </div>
     </motion.section>

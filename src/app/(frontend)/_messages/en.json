@@ -45,5 +45,11 @@
     "Title": "Our Products",
     "Des" : "We present our products to you in a charming and attractive way with artistic touches in a modern style that is unparalleled",
     "Button": "Packages For You"
+  },
+  "SingleProduct": {
+    "Button": "Request a Quote",
+    "Description": "Description",
+    "Home": "Home",
+    "Product": "Our Product"
   }
 }

@@ -8,6 +8,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const OurProduct = () => {
   const t = useTranslations("OurProducts");
@@ -17,6 +18,10 @@ const OurProduct = () => {
   const [items, setItems] = useState([]);
   const { locale } = useParams();
   const totalPages = Math.ceil(items.length / itemsPerPage);
+  const router = useRouter();
+  const handleNavigate = () => {
+    router.push(`${locale}/sep-products`);
+  };
   useEffect(() => {
     async function fetchData() {
       try {
@@ -89,6 +94,7 @@ const OurProduct = () => {
     opacity-0 rotate-[45deg] group-hover:opacity-100 group-hover:rotate-0 
     transition-all duration-500 ease-out 
     scale-90 hover:scale-100"
+                          onClick={handleNavigate}
                         >
                           {locale === "en" ? item.titleEn : item.titleAr}
                         </button>
