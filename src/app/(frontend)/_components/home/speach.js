@@ -20,7 +20,7 @@ const Speach = () => {
             </p>
           </div>
         ) : (
-          <p className="text-white text-lg leading-snug text-center">
+          <p className="text-white text-xl leading-snug text-center">
             {t("Title")}
           </p>
         )}
@@ -32,12 +32,12 @@ const Speach = () => {
             width={500}
             height={500}
             quality={100}
-            className=" w-full h-auto max-w-[300px] lg:max-w-[400px] xl:max-w-[500px] object-cover transition-transform duration-300 transform scale-110 hover:scale-125"
+            className="object-cover transition-transform duration-300 transform scale-110 hover:scale-125"
           />
         </div>
       </div>
 
-      <div className="flex justify-center w-full my-9">
+      <div className="flex justify-center w-full ml-12 my-9">
         <Image
           src="/Speach/logo.png"
           alt="Logo"

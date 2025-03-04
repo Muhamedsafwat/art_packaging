@@ -2,6 +2,9 @@ import { CollectionConfig } from "payload";
 
 const Services: CollectionConfig = {
   slug: "services",
+  access: {
+    read: () => true, // Allow public read access
+  },
   labels: {
     singular: "Service",
     plural: "Services",
