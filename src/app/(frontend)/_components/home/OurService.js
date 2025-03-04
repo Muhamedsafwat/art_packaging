@@ -17,7 +17,7 @@ const OurService = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/services");
+        const response = await fetch("/api/services");
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }

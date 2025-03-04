@@ -19,15 +19,11 @@ const OurProduct = () => {
   const { locale } = useParams();
   const totalPages = Math.ceil(items.length / itemsPerPage);
   const router = useRouter();
-  const handleNavigate = () => {
-    router.push(`${locale}/sep-products`);
-  };
+
   useEffect(() => {
     async function fetchData() {
       try {
-        const fetchCategories = await fetch(
-          "http://localhost:3000/api/categories"
-        );
+        const fetchCategories = await fetch("/api/categories");
         const data = await fetchCategories.json();
 
         setItems(data.docs || []);
@@ -94,7 +90,13 @@ const OurProduct = () => {
     opacity-0 rotate-[45deg] group-hover:opacity-100 group-hover:rotate-0 
     transition-all duration-500 ease-out 
     scale-90 hover:scale-100"
-                          onClick={handleNavigate}
+                          onClick={() => {
+                            sessionStorage.setItem(
+                              "selectedCategory",
+                              JSON.stringify(item)
+                            );
+                            router.push(`/${locale}/sep-products`);
+                          }}
                         >
                           {locale === "en" ? item.titleEn : item.titleAr}
                         </button>

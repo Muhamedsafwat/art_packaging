@@ -4,6 +4,7 @@ import SuccessPartners from "../_components/home/SuccessPartners";
 import Speach from "../_components/home/speach";
 import OurService from "../_components/home/OurService";
 import OurProduct from "../_components/home/OurProduct";
+import { notFound } from "next/navigation";
 export default async function Home({ params }) {
   const { locale } = await params;
   if (!["en", "ar"].includes(locale)) {

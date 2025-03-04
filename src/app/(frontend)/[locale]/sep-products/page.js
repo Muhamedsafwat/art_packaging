@@ -1,74 +1,66 @@
 "use client";
-import { useParams } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+
 const SepProducts = () => {
   const { locale } = useParams();
   const router = useRouter();
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
-  const handleNavigate = (selectedItem) => {
-    sessionStorage.setItem("selectedProduct", JSON.stringify(selectedItem));
+  useEffect(() => {
+    const category = JSON.parse(sessionStorage.getItem("selectedCategory"));
+
+    if (category) {
+      setSelectedCategory(category);
+
+      async function fetchAllProducts() {
+        let allProducts = [];
+        let currentPage = 1;
+        let hasNextPage = true;
+
+        try {
+          while (hasNextPage) {
+            const response = await fetch(`/api/products?page=${currentPage}`);
+            const data = await response.json();
+            allProducts = [...allProducts, ...data.docs];
+            hasNextPage = data.hasNextPage;
+            currentPage++;
+          }
+          const filtered = allProducts.filter(
+            (product) => product.category?.id === category.id
+          );
+          setFilteredProducts(filtered);
+        } catch (error) {
+          console.error("Error fetching products:", error);
+        }
+      }
+
+      fetchAllProducts();
+    } else {
+      console.error("No category found in sessionStorage.");
+    }
+  }, []);
+
+  const handleNavigate = (product) => {
+    console.log("Storing product:", product); // Debugging
+    sessionStorage.setItem("selectedProduct", JSON.stringify(product)); // Store as JSON string
+    console.log(
+      "Product stored in sessionStorage:",
+      sessionStorage.getItem("selectedProduct")
+    ); // Debugging
     router.push(`/${locale}/single-product`);
   };
 
-  const image = [
-    {
-      image: "/sep-products/1.png",
-      Title: "Test",
-      description:
-        "First Item First ItemFirst Item First Item First ItemFirst Item First Item First Item First Item First ItemFirst Item",
-    },
-    {
-      image: "/sep-products/2.png",
-      Title: "Test",
-      description:
-        "First Item First ItemFirst Item First Item First ItemFirst Item First Item First Item First Item First ItemFirst Item",
-    },
-    {
-      image: "/sep-products/3.png",
-      Title: "Test",
-      description:
-        "First Item First ItemFirst Item First Item First ItemFirst Item First Item First Item First Item First ItemFirst Item",
-    },
-    {
-      image: "/sep-products/4.png",
-      Title: "Test",
-      description:
-        "First Item First ItemFirst Item First Item First ItemFirst Item First Item First Item First Item First ItemFirst Item",
-    },
-    {
-      image: "/sep-products/5.png",
-      Title: "Test",
-      description:
-        "First Item First ItemFirst Item First Item First ItemFirst Item First Item First Item First Item First ItemFirst Item",
-    },
-    {
-      image: "/sep-products/6.png",
-      Title: "Test",
-      description:
-        "First Item First ItemFirst Item First Item First ItemFirst Item First Item First Item First Item First ItemFirst Item",
-    },
-    {
-      image: "/sep-products/7.png",
-      Title: "Test",
-      description:
-        "First Item First ItemFirst Item First Item First ItemFirst Item First Item First Item First Item First ItemFirst Item",
-    },
-    {
-      image: "/sep-products/8.png",
-      Title: "Test",
-      description:
-        "First Item First ItemFirst Item First Item First ItemFirst Item First Item First Item First Item First ItemFirst Item",
-    },
-  ];
-
   return (
     <div className="grid lg:grid-cols-3 md:grid-cols-2 justify-items-center gap-5 my-10 w-full max-w-[1200px] mx-auto px-2 sm:px-5">
-      {image.map((i, index) => (
+      {filteredProducts.map((product, index) => (
         <img
-          src={i.image}
+          src={product.images?.[0]?.image?.url}
           key={index}
           className="w-full object-contain rounded-lg hover:scale-105 transition-all duration-500 ease-in-out cursor-pointer"
-          onClick={() => handleNavigate(i)}
+          onClick={() => handleNavigate(product)}
         />
       ))}
     </div>

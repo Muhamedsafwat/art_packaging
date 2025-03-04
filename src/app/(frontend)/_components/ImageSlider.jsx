@@ -8,7 +8,7 @@ const ImageSlider = ({ locale }) => {
   const fetchData = async() => {
     try{
 
-      const res = await fetch("http://localhost:3000/api/globals/sliders-images/")
+      const res = await fetch("/api/globals/sliders-images/")
       const data = await res.json()
       
       setImages(data.partners)
