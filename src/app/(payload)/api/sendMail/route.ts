@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
-import { sendMail } from "@/app/(payload)/lib/sendemail";
+import { NextResponse } from "next/server.js";
+import { sendMail } from "@/app/(payload)/lib/sendemail.ts";
 
 export async function POST(req: Request) {
   try {

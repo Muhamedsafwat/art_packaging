@@ -2,11 +2,11 @@ import sharp from "sharp";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { buildConfig } from "payload";
-import Media from "@/app/(payload)/_collections/Media";
-import SlidersImages from "@/app/(payload)/_collections/SlidersImages";
-import Services from "@/app/(payload)/_collections/Services";
-import Categories from "@/app/(payload)/_collections/Categories";
-import Products from "@/app/(payload)/_collections/Products";
+import Media from "@/app/(payload)/_collections/Media.ts";
+import SlidersImages from "@/app/(payload)/_collections/SlidersImages.ts";
+import Services from "@/app/(payload)/_collections/Services.ts";
+import Categories from "@/app/(payload)/_collections/Categories.ts";
+import Products from "@/app/(payload)/_collections/Products.ts";
 
 export default buildConfig({
   // If you'd like to use Rich Text, pass your editor here
