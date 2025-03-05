@@ -70,10 +70,7 @@ export default function Contact() {
           <div
             key={index}
             className={`flex items-center gap-3 p-2 rounded-lg opacity-75 hover:opacity-100 
-            transition-opacity duration-300 w-full ${
-              item.link.startsWith("mailto:")
-                ? ""
-                : "cursor-pointer border-2 border-transparent hover:border-[#B9A14C]"
+            transition-opacity duration-300 w-full cursor-pointer border-2 border-transparent hover:border-[#B9A14C]
             }`}
             onClick={() => {
               if (!item.link.startsWith("mailto:")) {

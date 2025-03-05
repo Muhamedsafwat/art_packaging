@@ -2,12 +2,10 @@
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
 const OurProduct = () => {
@@ -91,11 +89,9 @@ const OurProduct = () => {
     transition-all duration-500 ease-out 
     scale-90 hover:scale-100"
                           onClick={() => {
-                            sessionStorage.setItem(
-                              "selectedCategory",
-                              JSON.stringify(item)
+                            router.push(
+                              `/${locale}/products?category=${locale == "ar" ? item.titleAr : item.titleEn}`
                             );
-                            router.push(`/${locale}/sep-products`);
                           }}
                         >
                           {locale === "en" ? item.titleEn : item.titleAr}

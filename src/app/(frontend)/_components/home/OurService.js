@@ -3,9 +3,12 @@ import ServiceCards from "../cards/ServiceCards";
 import ServicesTranslation from "./ServicesTranslation";
 const fetchData = async () => {
   try {
-    const response = await fetch(`${process.env.BASE_URL}/api/services`, {
-      cache: "no-store",
-    });
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/services`,
+      {
+        cache: "no-store",
+      }
+    );
     if (!response.ok) throw new Error("Failed to fetch data");
 
     const data = await response.json();

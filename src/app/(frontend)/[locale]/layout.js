@@ -7,10 +7,16 @@ import "../globals.css";
 import Footer from "../_components/footer";
 
 const cairo = Cairo({
-  variable: "--font-cairo",
   subsets: ["arabic", "latin"],
   weight: ["400", "700"],
 });
+
+export const generateMetadata = () => {
+  return {
+    title: "Art Packaging",
+    description: "This is the description of your page.",
+  };
+};
 
 export default async function LocaleLayout({ children, params }) {
   const { locale } = await params;
@@ -23,7 +29,7 @@ export default async function LocaleLayout({ children, params }) {
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body
-        className={`antialiased bg-[#2F2E35] w-screen overflow-x-hidden flex flex-col min-h-screen ${cairo.variable}`}
+        className={`antialiased bg-[#2F2E35] w-screen overflow-x-hidden flex flex-col min-h-screen ${cairo.className}`}
       >
         <NextIntlClientProvider messages={messages}>
           <Navbar locale={locale} />

@@ -64,22 +64,18 @@ const ContactUsForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className={`p-6 rounded-lg shadow-lg w-full max-w-2xl md:max-w-lg lg:max-w-xl bg-white ${
+      className={`p-6 rounded-lg w-full max-w-2xl md:max-w-lg lg:max-w-xl text-white ${
         isArabic ? "text-right" : "text-left"
       }`}
       dir={isArabic ? "rtl" : "ltr"}
     >
-      <h2 className="text-gray-800 text-2xl font-semibold mb-4 text-center">
-        {t("Contact")}
-      </h2>
-
       <div className="flex flex-col gap-6">
         {["Name", "Phone", "Email", "Message"].map((field, index) => (
           <div key={index} className="relative w-full">
             <label
-              className={`absolute -top-3 ${
+              className={`${
                 isArabic ? "right-3" : "left-3"
-              } bg-white px-2 text-[#B9A14C] font-semibold text-sm`}
+              }  px-2 font-semibold text`}
             >
               {t(field)}
             </label>
@@ -97,7 +93,7 @@ const ContactUsForm = () => {
                 onChange={handleChange}
                 required
                 className="w-full p-3 bg-white text-gray-800 border border-gray-300 rounded-md outline-none 
-                focus:ring-2 focus:ring-[#B9A14C] hover:shadow-md transition-all"
+                focus:ring-2 focus:ring-[#B9A14C] focus:mt-3 hover:shadow-md transition-all"
               />
             ) : (
               <textarea

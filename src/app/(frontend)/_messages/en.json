@@ -50,6 +50,10 @@
     "Button": "Request a Quote",
     "Description": "Description",
     "Home": "Home",
-    "Product": "Our Product"
-  }
+    "Product": "Our Product",
+    "Loading" : "Loading Product"
+
+  },
+  "Loading" : "Loading Products"
+
 }

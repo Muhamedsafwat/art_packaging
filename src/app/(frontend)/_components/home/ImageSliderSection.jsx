@@ -5,7 +5,9 @@ import ImagesSlider from "./ImagesSlider";
 const ImageSliderSection = async ({ locale }) => {
   const fetchData = async () => {
     try {
-      return await fetch(`${process.env.BASE_URL}/api/globals/sliders-images`)
+      return await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/globals/sliders-images`
+      )
         .then((res) => res.json())
         .then((data) => data.partners);
     } catch (error) {

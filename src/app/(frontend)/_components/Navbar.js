@@ -8,6 +8,7 @@ import { FiSearch } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
 import SearchOverlay from "./SearchOverlay";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export default function Navbar({ locale }) {
   const t = useTranslations("Navbar");
@@ -38,7 +39,12 @@ export default function Navbar({ locale }) {
     <nav className="text-white p-4 bg-inherit relative bg-[#2F2E35]">
       <div className="container mx-auto flex items-center justify-between">
         <Link href={`/${locale}/home`} className="text-2xl font-bold">
-          Logo
+          <Image
+            alt="Art_Packaging_Logo"
+            src="/logo_transparent.png"
+            width={100}
+            height={100}
+          />
         </Link>
 
         <div
