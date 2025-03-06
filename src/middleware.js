@@ -10,13 +10,14 @@ const intlMiddleware = createMiddleware({
   localePrefix: "always",
 });
 
-export default function middleware(req) {
+export function middleware(req) {
   console.log("Middleware activated for:", req.nextUrl.pathname);
 
   if (req.nextUrl.pathname === "/") {
     return NextResponse.redirect(new URL("/ar", req.url));
   }
 
+  // Ensure the request is handled correctly
   return intlMiddleware(req);
 }
 
