@@ -20,7 +20,7 @@ const SuccessPartners = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3000/api/globals/sliders-images"
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/globals/sliders-images`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch data");
