@@ -11,14 +11,14 @@ const ProductClient = ({ product }) => {
   const t = useTranslations("SingleProduct");
 
   return (
-    <div className="flex flex-col justify-center items-center mt-10">
-      <div className="flex mb-10 flex-col md:flex-row items-center justify-between w-full max-w-4xl ml-4 px-5 gap-10 mt-10">
+    <div className="flex flex-col justify-center items-center">
+      <div className="flex mb-10 flex-col md:flex-row items-center justify-between w-full max-w-5xl px-5 gap-5 mt-10">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           navigation
           pagination={{ clickable: true }}
           loop={true}
-          className="max-w-[500px] max-h-[500px] w-auto h-auto cursor-grab rounded-md"
+          className="md:w-1/2 max-w-[100vw] cursor-grab rounded-md"
         >
           {product.images.map((img, index) => (
             <SwiperSlide key={index}>
@@ -33,14 +33,14 @@ const ProductClient = ({ product }) => {
 
         <div className="md:w-1/2 text-center md:text-start">
           <h1
-            className={`text-xl font-bold text-white mb-3 ${
+            className={`text-2xl font-bold text-white mb-3 ${
               locale === "en" ? "text-left" : "text-right"
             }`}
           >
             {t("Description")}
           </h1>
           <p
-            className={`text-lg text-white mb-4 ${
+            className={`text-lg text-gray-200 mb-4 ${
               locale === "en" ? "text-left" : "text-right"
             }`}
           >

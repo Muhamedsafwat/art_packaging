@@ -43,7 +43,7 @@ const OurProduct = () => {
       className="flex flex-col justify-center text-center mt-12"
       id="products"
     >
-      <p className="text-white font-[900] lg:text-6xl md:text-5xl">
+      <p className="text-white font-[900] lg:text-5xl md:text-4xl">
         {t("Title")}
       </p>
       <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#939396] lg:max-w-xlg mt-5">

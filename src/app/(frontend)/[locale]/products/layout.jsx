@@ -30,8 +30,8 @@ const layout = ({ children }) => {
   }, []);
 
   return (
-    <div className="container">
-      <div className="mx-auto flex w-full justify-center mt-20 items-center gap-2 cursor-pointer text-white text-xl mb-5">
+    <div className="container mx-auto">
+      <div className="mx-auto flex w-full justify-center mt-20 items-center gap-2 cursor-pointer text-white text-lg md:text-xl mb-12">
         <Link
           href={`/${locale}`}
           className="hover:text-[#d4af37] flex items-center gap-1 mb-[1px]"

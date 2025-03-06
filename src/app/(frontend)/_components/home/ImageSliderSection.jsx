@@ -18,7 +18,10 @@ const ImageSliderSection = async ({ locale }) => {
   const images = await fetchData();
 
   return (
-    <section dir="ltr" className="mt-12 w-screen h-[80vh] overflow-x-hidden">
+    <section
+      dir="ltr"
+      className="mt-12 w-screen h-screen max-h-[700px] overflow-x-hidden"
+    >
       <Image
         alt="we care so we create"
         src={`/logos/slider_logo_${locale}.svg`}

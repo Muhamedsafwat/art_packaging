@@ -9,7 +9,7 @@ const LetsWork = () => {
   };
   return (
     <div className="flex flex-col items-center mt-20">
-      <div className="lg:text-6xl md:text-6xl  text-3xl flex justify-center items-center gap-2">
+      <div className="lg:text-5xl md:text-4xl  text-3xl flex justify-center items-center gap-2">
         <h1 className=" font-[900] text-white">{t("First")} </h1>
         <span className="text-[#8c8c8f] font-[900]">{t("Second")}</span>
       </div>
