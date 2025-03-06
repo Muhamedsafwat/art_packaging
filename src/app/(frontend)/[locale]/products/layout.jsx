@@ -8,23 +8,13 @@ import Link from "next/link";
 const layout = ({ children }) => {
   const t = useTranslations("SingleProduct");
   const { locale } = useParams();
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState({});
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const category = new URLSearchParams(window.location.search).get(
-        "category"
-      );
-      if (category) {
-        localStorage.setItem("category", category);
-        setCategory(category);
-      } else {
-        const storedCategory = localStorage.getItem("category");
-        if (storedCategory) {
-          setCategory(storedCategory);
-        } else {
-          setCategory("");
-        }
+      const storedCategory = localStorage.getItem("category");
+      if (storedCategory) {
+        setCategory(JSON.parse(storedCategory));
       }
     }
   }, []);
@@ -44,7 +34,9 @@ const layout = ({ children }) => {
           {t("Product")}
         </Link>
         <span>{">"}</span>
-        <span className="font-semibold hover:text-[#d4af37]">{category}</span>
+        <span className="font-semibold hover:text-[#d4af37]">
+          {locale == "ar" ? category.titleAr : category.titleEn}
+        </span>
       </div>
       {children}
     </div>

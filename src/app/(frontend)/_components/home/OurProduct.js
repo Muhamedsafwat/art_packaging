@@ -89,9 +89,14 @@ const OurProduct = () => {
     transition-all duration-500 ease-out 
     scale-90 hover:scale-100"
                           onClick={() => {
-                            router.push(
-                              `/${locale}/products?category=${locale == "ar" ? item.titleAr : item.titleEn}`
+                            localStorage.setItem(
+                              "category",
+                              JSON.stringify({
+                                titleAr: item.titleAr,
+                                titleEn: item.titleEn,
+                              })
                             );
+                            router.push(`/${locale}/products`);
                           }}
                         >
                           {locale === "en" ? item.titleEn : item.titleAr}

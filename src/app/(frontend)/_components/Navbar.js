@@ -19,7 +19,7 @@ export default function Navbar({ locale }) {
 
   const toggleLanguage = () => {
     const newLocale = locale === "en" ? "ar" : "en";
-    const newPath = `/${newLocale}`;
+    const newPath = `/${newLocale}${pathname.substring(3)}`;
     router.push(newPath);
   };
 
@@ -38,7 +38,7 @@ export default function Navbar({ locale }) {
   return (
     <nav className="text-white p-4 bg-inherit relative bg-[#2F2E35]">
       <div className="container mx-auto flex items-center justify-between">
-        <Link href={`/${locale}`} className="text-xl font-bold">
+        <Link href={`/${locale}`} className="text-2xl font-bold">
           <Image
             alt="Art_Packaging_Logo"
             src="/logo_transparent.png"
@@ -54,7 +54,7 @@ export default function Navbar({ locale }) {
             <Link
               key={`navbar_link_${index}`}
               href={link.href}
-              className="hover:text-primary mt-2 text-xl"
+              className="hover:text-primary mt-2 text-[20px]"
             >
               {link.label}
             </Link>
@@ -71,7 +71,7 @@ export default function Navbar({ locale }) {
               alt="Language Icon"
               className="w-10 h-5 ml-2"
             />
-            <span className="hover:text-[#d4af37] text-[20px]">
+            <span className="hover:text-[#d4af37] text-xl">
               {locale === "en" ? "العربية" : "English"}
             </span>
           </button>
