@@ -1,13 +1,6 @@
 {
-  "/(payload)/api/sendMail/route": "app/(payload)/api/sendMail/route.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/(payload)/api/graphql-playground/route": "app/(payload)/api/graphql-playground/route.js",
-  "/(payload)/api/graphql/route": "app/(payload)/api/graphql/route.js",
-  "/(payload)/api/[...slug]/route": "app/(payload)/api/[...slug]/route.js",
-  "/(frontend)/[locale]/about/page": "app/(frontend)/[locale]/about/page.js",
-  "/(frontend)/[locale]/contact/page": "app/(frontend)/[locale]/contact/page.js",
   "/(frontend)/[locale]/page": "app/(frontend)/[locale]/page.js",
-  "/(payload)/admin/[[...segments]]/page": "app/(payload)/admin/[[...segments]]/page.js",
-  "/(frontend)/[locale]/products/[id]/page": "app/(frontend)/[locale]/products/[id]/page.js",
-  "/(frontend)/[locale]/products/page": "app/(frontend)/[locale]/products/page.js"
+  "/(payload)/api/[...slug]/route": "app/(payload)/api/[...slug]/route.js",
+  "/(frontend)/[locale]/products/page": "app/(frontend)/[locale]/products/page.js",
+  "/(frontend)/[locale]/products/[id]/page": "app/(frontend)/[locale]/products/[id]/page.js"
 }

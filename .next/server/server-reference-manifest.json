@@ -1,1 +1,5 @@
-{"node":{"40a4efcf238d4bd43dbe0c590ef3d7ab2327d60a98":{"workers":{"app/(payload)/api/sendMail/route":{"moduleId":"15898","async":false}},"layer":{"app/(payload)/api/sendMail/route":"rsc"}},"40ffbb499bd025b62d0a891efcd87b4bc2535d8176":{"workers":{"app/(payload)/admin/[[...segments]]/page":{"moduleId":"64118","async":false}},"layer":{"app/(payload)/admin/[[...segments]]/page":"rsc"}},"60fe4ebc4af834a0e568dda7b42090ab6c3b4287ec":{"workers":{"app/(payload)/admin/[[...segments]]/page":{"moduleId":"64118","async":false}},"layer":{"app/(payload)/admin/[[...segments]]/page":"rsc"}}},"edge":{},"encryptionKey":"YfQsiT/sDCnCXH+V5mkswCQE4GI0wESDgEBDPL7W7pE="}
+{
+  "node": {},
+  "edge": {},
+  "encryptionKey": "YfQsiT/sDCnCXH+V5mkswCQE4GI0wESDgEBDPL7W7pE="
+}
