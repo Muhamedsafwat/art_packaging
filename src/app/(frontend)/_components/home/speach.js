@@ -11,12 +11,9 @@ const Speach = () => {
         {locale === "en" ? (
           <div className=" flex flex-col justify-center">
             <p className="text-white text-lg leading-snug text-center">
-              <span className="block">Fashion also has a special world</span>
-              <span className="block">
-                The product also has a special world of fashion. Let us choose
-                fashion from
-              </span>
-              <span className="block">The paper suits your product.</span>
+              Fashion also has a special world <br /> The product also has a
+              special world of fashion. Let us choose fashion from The paper
+              suits your product.
             </p>
           </div>
         ) : (
@@ -29,15 +26,17 @@ const Speach = () => {
           <Image
             src="/Speach/Sec7.png"
             alt="Speech Section"
-            width={520}
-            height={520}
+            width={510}
+            height={510}
             quality={100}
             className="object-cover transition-transform duration-300 transform scale-110 max-w-[80vw] mx-auto  md:hover:scale-125"
           />
         </div>
       </div>
 
-      <div className="flex justify-center w-full ml-12 my-9">
+      <div
+        className={`flex  w-full ml-12 my-9 ${locale == "en" ? "justify-end lg:pr-72" : "justify-center"}`}
+      >
         <Image
           src="/Speach/logo.png"
           alt="Logo"

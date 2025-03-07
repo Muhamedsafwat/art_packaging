@@ -19,13 +19,13 @@ const fetchData = async () => {
   }
 };
 
-const OurService = async () => {
+const OurService = async ({ locale }) => {
   const services = await fetchData();
 
   return (
     <section
       id="services"
-      className="flex flex-col items-center text-center -mt-16 mr-7"
+      className={`flex flex-col items-center text-center ${locale == "ar" && "-mt-16"} mr-7`}
     >
       {/* Now using a separate client component for translations */}
       <ServicesTranslation />
