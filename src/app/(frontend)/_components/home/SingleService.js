@@ -24,7 +24,7 @@ const SingleService = ({ service, onClose }) => {
             onClose();
           }}
         >
-          x
+          <p className="relative -top-[2px]">x</p>
         </button>
         <Image
           src={service.icon.url}
@@ -36,7 +36,7 @@ const SingleService = ({ service, onClose }) => {
         <h3 className="text-2xl mt-4 font-bold text-[#B9A14C]">
           {locale === "en" ? service.titleEn : service.titleAr}
         </h3>
-        <p className="text-sm text-left text-gray-300 mt-2 font-semibold leading-[26px]">
+        <p className="text-sm text-start text-gray-300 mt-2 font-semibold leading-[26px]">
           {locale === "en" ? service.descriptionEn : service.descriptionAr}
         </p>
       </div>
