@@ -4,7 +4,7 @@ import Slider from "react-infinite-logo-slider";
 
 const ImagesSlider = ({ images }) => {
   return (
-    <div className="-rotate-6 mt-20 w-[115vw] md:w-[105vw] -translate-x-10">
+    <div className="-rotate-6 mt-20 w-[105vw] -translate-x-10">
       <Slider
         width="270px"
         duration={80}
