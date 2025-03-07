@@ -1,6 +1,6 @@
 "use client";
 import { useParams, useRouter, usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 
@@ -10,6 +10,9 @@ const SepProducts = () => {
   const [loading, setLoading] = useState(true);
   const [filteredProducts, setFilteredProducts] = useState([]);
 
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useEffect(() => {
     async function fetchAllProducts(category) {
       let allProducts = [];
