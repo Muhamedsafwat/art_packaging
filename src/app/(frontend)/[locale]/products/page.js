@@ -55,7 +55,7 @@ const SepProducts = () => {
           </p>
         </div>
       ) : (
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 justify-items-center gap-12 my-10 mb-16 w-full max-w-[1200px] mx-auto px-2 sm:px-5">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 justify-items-center gap-12 my-16 w-full max-w-[1200px] mx-auto px-2 sm:px-5">
           {filteredProducts.map((product, index) => (
             <Link key={index} href={`products${"/" + product.id}`}>
               <img

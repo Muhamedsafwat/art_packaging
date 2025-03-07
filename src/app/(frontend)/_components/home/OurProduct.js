@@ -50,7 +50,7 @@ const OurProduct = () => {
         {t("Des")}
       </p>
 
-      <div className="relative w-full mt-7">
+      <div className="relative max-w-7xl mx-auto px-16 mt-7">
         <Swiper
           ref={swiperRef}
           modules={[Navigation]}
@@ -64,7 +64,7 @@ const OurProduct = () => {
           {Array.from({ length: totalPages }).map((_, pageIndex) => (
             <SwiperSlide key={pageIndex}>
               <div className="relative">
-                <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-5 gap-x-5 gap-y-5 w-max mx-auto place-items-start">
+                <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-5 gap-x-5 gap-y-5 w-full max-w-[100vw] place-items-start">
                   {items
                     .slice(
                       pageIndex * itemsPerPage,
@@ -73,7 +73,7 @@ const OurProduct = () => {
                     .map((item, index) => (
                       <div
                         key={item.id}
-                        className={`relative cursor-pointer group w-[400px] overflow-hidden transition-transform duration-300 ease-in-out hover:scale-105
+                        className={`relative cursor-pointer group w-full overflow-hidden transition-transform duration-300 ease-in-out hover:scale-105
          lg:h-[400px] lg:even:h-[60%] ${index > 3 && "lg:odd:-translate-y-[40%]"}`}
                       >
                         <img

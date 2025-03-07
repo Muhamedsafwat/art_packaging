@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { IoHome } from "react-icons/io5";
+import { IoHomeOutline } from "react-icons/io5";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 
@@ -21,16 +21,19 @@ const layout = ({ children }) => {
 
   return (
     <div className="container mx-auto">
-      <div className="mx-auto flex w-full justify-center mt-20 items-center gap-2 cursor-pointer text-white text-lg md:text-xl mb-12">
+      <div className="mx-auto flex w-full justify-center mt-28 items-center gap-5 cursor-pointer text-white text-lg md:text-lg mb-18">
         <Link
           href={`/${locale}`}
-          className="hover:text-[#d4af37] flex items-center gap-1 mb-[1px]"
+          className="hover:text-[#d4af37] font-semibold flex items-center gap-1 mb-[1px]"
         >
-          <IoHome className="text-xl mr-2 mt-[1px]" />
-          <span>{t("Home")}</span>
+          <IoHomeOutline className="text-xl mr-2 mt-[1px] font-semibold" />
+          <span className="font-semibold">{t("Home")}</span>
         </Link>
         <span>{">"}</span>
-        <Link href={`/${locale}#products`} className="hover:text-[#d4af37]">
+        <Link
+          href={`/${locale}#products`}
+          className="hover:text-[#d4af37] font-semibold"
+        >
           {t("Product")}
         </Link>
         <span>{">"}</span>

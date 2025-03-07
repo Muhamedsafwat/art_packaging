@@ -25,7 +25,7 @@ const OurService = async () => {
   return (
     <section
       id="services"
-      className="flex flex-col items-center text-center sm:-mt-28 mr-7"
+      className="flex flex-col items-center text-center -mt-16 mr-7"
     >
       {/* Now using a separate client component for translations */}
       <ServicesTranslation />

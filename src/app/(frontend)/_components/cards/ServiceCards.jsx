@@ -13,11 +13,11 @@ const ServiceCards = ({ services }) => {
   const [selectedService, setSelectedService] = useState(null);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 mb-12 max-w-6xl">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 mb-12 max-w-6xl md:mx-16">
       {services.map((s, index) => (
         <div
           key={index}
-          className="bg-[#424245] rounded-xl p-2 lg:px-4 lg:py-12 pt-0  shadow-lg cursor-pointer text-white text-center mx-5 lg:mx-0"
+          className="bg-[#424245] rounded-xl p-2 lg:px-4 lg:py-12 pt-0  shadow-lg cursor-pointer text-white text-center lg:mx-0"
           onClick={() => setSelectedService(s)}
         >
           <Image
