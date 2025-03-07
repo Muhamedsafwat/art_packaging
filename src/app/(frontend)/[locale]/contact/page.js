@@ -84,7 +84,9 @@ export default function Contact() {
                 {item.text}
               </a>
             ) : (
-              <p className="text-white">{item.text}</p>
+              <p dir="ltr" className="text-white">
+                {item.text}
+              </p>
             )}
           </div>
         ))}
