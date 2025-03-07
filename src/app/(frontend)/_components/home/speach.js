@@ -7,7 +7,9 @@ const Speach = () => {
   const { locale } = useParams();
   return (
     <div className="flex flex-col justify-center max-w-5xl mx-auto items-center mt-16">
-      <div className="flex flex-col lg:flex-row justify-center items-center  gap-8">
+      <div
+        className={`flex flex-col lg:flex-row justify-center items-center ${locale == "ar" ? "gap-8" : "gap-16"}`}
+      >
         {locale === "en" ? (
           <div className=" flex flex-col justify-center">
             <p className="text-white text-lg leading-snug text-center">
@@ -29,13 +31,13 @@ const Speach = () => {
             width={510}
             height={510}
             quality={100}
-            className="object-cover transition-transform duration-300 transform scale-110 max-w-[80vw] mx-auto  md:hover:scale-125"
+            className="object-cover transition-transform duration-300 transform scale-[1.05] max-w-[80vw] mx-auto  md:hover:scale-[1.15]"
           />
         </div>
       </div>
 
       <div
-        className={`flex  w-full ml-12 my-9 ${locale == "en" ? "justify-end lg:pr-72" : "justify-center"}`}
+        className={`flex  w-full ml-12 my-9 ${locale == "en" ? "justify-center lg:pr-52 mt-10" : "justify-center"}`}
       >
         <Image
           src="/Speach/logo.png"
