@@ -1,9 +1,12 @@
+"use client";
 import { FiSearch } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function SearchOverlay({ showSearch, setShowSearch, locale }) {
+  const router = useRouter();
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -70,7 +73,18 @@ export default function SearchOverlay({ showSearch, setShowSearch, locale }) {
         {filteredProducts.length > 0 &&
           filteredProducts.map((product, index) => (
             <div
-              className="max-w-lg bg-white bg-opacity-15 p-3 rounded-xl flex items-center gap-5"
+              onClick={() => {
+                setShowSearch(false);
+                localStorage.setItem(
+                  "category",
+                  JSON.stringify({
+                    titleAr: product.category.titleAr,
+                    titleEn: product.category.titleEn,
+                  })
+                );
+                router.push(`/${locale}/products/${product.id}`);
+              }}
+              className="max-w-lg bg-white bg-opacity-15 p-3 rounded-xl flex items-center gap-5 cursor-pointer"
               key={index}
             >
               <Image
