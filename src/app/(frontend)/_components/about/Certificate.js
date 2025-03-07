@@ -16,14 +16,14 @@ export default function Certificates() {
         {certificates.map((cert, index) => (
           <div
             key={index}
-            className="w-full md:w-[450px] lg:w-[500px] bg-[#3B3B47] rounded-xl overflow-hidden shadow-lg flex flex-col p-6 transition-transform duration-300 hover:scale-105"
+            className="w-full md:w-[400px] lg:w-[450px] bg-[#3B3B47] rounded-xl overflow-hidden shadow-lg flex flex-col p-6 transition-transform duration-300 hover:scale-105"
           >
             <div className="w-full relative flex-grow flex items-center justify-center">
               <Image
                 src={cert.image}
                 alt={cert.title}
-                width={500}
-                height={500}
+                width={300}
+                height={300}
                 objectFit="contain"
                 className="rounded-2xl w-auto max-w-full max-h-full"
               />
