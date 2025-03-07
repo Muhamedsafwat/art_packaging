@@ -59,9 +59,13 @@ export default function Footer({ locale }) {
           ))}
         </div>
 
-        <p className="text-white pt-10 text-xl font-semibold opacity-80">
+        <a
+          href="https://bcoit.com/"
+          target="_blank"
+          className="text-white pt-10 text-xl font-semibold opacity-80"
+        >
           Copyright @2024
-        </p>
+        </a>
       </div>
     </footer>
   );
