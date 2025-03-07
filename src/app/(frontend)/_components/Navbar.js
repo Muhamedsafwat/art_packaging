@@ -91,7 +91,11 @@ export default function Navbar({ locale }) {
             onClick={() => setShowSearch(true)}
           />
         </div>
-        <SearchOverlay showSearch={showSearch} setShowSearch={setShowSearch} />
+        <SearchOverlay
+          locale={locale}
+          showSearch={showSearch}
+          setShowSearch={setShowSearch}
+        />
 
         <button className="lg:hidden text-2xl" onClick={toggleSidebar}>
           <HiOutlineBars3 />

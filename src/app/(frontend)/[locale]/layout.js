@@ -15,6 +15,9 @@ export const generateMetadata = () => {
   return {
     title: "Art Packaging",
     description: "This is the description of your page.",
+    icons: {
+      icon: "/icon.png",
+    },
   };
 };
 
