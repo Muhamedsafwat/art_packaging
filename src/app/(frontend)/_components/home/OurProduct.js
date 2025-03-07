@@ -50,7 +50,7 @@ const OurProduct = () => {
         {t("Des")}
       </p>
 
-      <div className="relative max-w-7xl mx-auto px-16 mt-7">
+      <div className="relative max-w-7xl w-full mx-auto px-16 mt-7">
         <Swiper
           ref={swiperRef}
           modules={[Navigation]}
