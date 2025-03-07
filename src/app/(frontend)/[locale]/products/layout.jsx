@@ -37,9 +37,12 @@ const layout = ({ children }) => {
           {t("Product")}
         </Link>
         <span>{">"}</span>
-        <span className="font-semibold hover:text-[#d4af37]">
+        <Link
+          href={`/${locale}/products`}
+          className="font-semibold hover:text-[#d4af37]"
+        >
           {locale == "ar" ? category.titleAr : category.titleEn}
-        </span>
+        </Link>
       </div>
       {children}
     </div>
