@@ -42,7 +42,7 @@ export default function Navbar({ locale }) {
           <Image
             alt="Art_Packaging_Logo"
             src="/logo_transparent.png"
-            width={90}
+            width={160}
             height={90}
           />
         </Link>
