@@ -30,38 +30,38 @@ export default function Footer({ locale }) {
   };
 
   return (
-    <footer className="bg-[#2F2E35] text-white py-16 px-8 mt-auto block relative">
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-white"></div>
-
+    <footer className="bg-[#2F2E35] text-white pb-3 px-8 mt-auto block relative border-t border-white pt-10">
       <div className="container mx-auto flex flex-col items-center text-center space-y-6">
         <div className="flex flex-wrap justify-center gap-6 text-lg">
           {links.map((link, index) => (
             <Link
               key={index}
               href={link.href}
-              className="hover:text-[#d4af37] transition-colors duration-300"
+              className="hover:text-[#d4af37] transition-colors text-md duration-300"
             >
               {link.label}
             </Link>
           ))}
         </div>
 
-        <div className="flex gap-8 text-3xl mt-6">
-          <FaWhatsapp
-            className="cursor-pointer hover:text-[#d4af37] transition-colors duration-300"
-            onClick={handleWhatsAppClick}
-          />
-          <FaEnvelope
-            className="cursor-pointer hover:text-[#d4af37] transition-colors duration-300"
-            onClick={handleEmailClick}
-          />
-          <FaMapMarkerAlt
-            className="cursor-pointer hover:text-[#d4af37] transition-colors duration-300"
-            onClick={handleMapClick}
-          />
+        <div className="flex gap-8 text-3xl mt-6 mb-12">
+          {[
+            { icon: FaWhatsapp, onClick: handleWhatsAppClick },
+            { icon: FaEnvelope, onClick: handleEmailClick },
+            { icon: FaMapMarkerAlt, onClick: handleMapClick },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="border border-[#999] rounded-full p-4 text-[20px] text-[#999] hover:bg-[#E7E7E7] duration-200 cursor-pointer"
+            >
+              <item.icon onClick={item.onClick} />
+            </div>
+          ))}
         </div>
 
-        <p className="text-white text-sm mt-6 opacity-80">@copy2025</p>
+        <p className="text-white pt-10 text-xl font-semibold opacity-80">
+          Copyright @2024
+        </p>
       </div>
     </footer>
   );

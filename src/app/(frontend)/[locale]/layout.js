@@ -33,7 +33,7 @@ export default async function LocaleLayout({ children, params }) {
       >
         <NextIntlClientProvider messages={messages}>
           <Navbar locale={locale} />
-          <main className="flex-grow">{children}</main>
+          <main>{children}</main>
           <Footer locale={locale} />
         </NextIntlClientProvider>
       </body>

@@ -13,13 +13,13 @@ export default async function Home({ params }) {
     notFound();
   }
   return (
-    <main>
+    <>
       <ImageSliderSection locale={locale} />
       <OurService locale={locale} />
       <OurProduct locale={locale} />
       <Speach locale={locale} />
       <SuccessPartners locale={locale} />
       <LetsWork locale={locale} />
-    </main>
+    </>
   );
 }

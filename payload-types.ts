@@ -163,6 +163,7 @@ export interface Category {
   thumbnail: string | Media;
   titleAr: string;
   titleEn: string;
+  sort: number;
   updatedAt: string;
   createdAt: string;
 }
@@ -308,6 +309,7 @@ export interface CategoriesSelect<T extends boolean = true> {
   thumbnail?: T;
   titleAr?: T;
   titleEn?: T;
+  sort?: T;
   updatedAt?: T;
   createdAt?: T;
 }

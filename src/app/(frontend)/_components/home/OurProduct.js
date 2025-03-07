@@ -21,7 +21,7 @@ const OurProduct = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const fetchCategories = await fetch("/api/categories");
+        const fetchCategories = await fetch("/api/categories?sort=sort");
         const data = await fetchCategories.json();
 
         setItems(data.docs || []);
@@ -43,10 +43,10 @@ const OurProduct = () => {
       className="flex flex-col justify-center text-center mt-12"
       id="products"
     >
-      <p className="text-white font-[900] lg:text-5xl md:text-4xl">
+      <h2 className="text-3xl sm:text-3xl lg:text-[35px] font-bold text-white mb-8">
         {t("Title")}
-      </p>
-      <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#939396] lg:max-w-xlg mt-5">
+      </h2>
+      <p className="text-sm sm:text-base md:text-lg lg:text-[23px] text-[#939396] lg:max-w-xlg mb-10">
         {t("Des")}
       </p>
 
@@ -64,7 +64,7 @@ const OurProduct = () => {
           {Array.from({ length: totalPages }).map((_, pageIndex) => (
             <SwiperSlide key={pageIndex}>
               <div className="relative">
-                <div className="grid  lg:grid-cols-3 md:grid-cols-2 md:gap-5 gap-x-5 gap-y-5 w-max mx-auto place-items-start">
+                <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-5 gap-x-5 gap-y-5 w-max mx-auto place-items-start">
                   {items
                     .slice(
                       pageIndex * itemsPerPage,
@@ -74,7 +74,7 @@ const OurProduct = () => {
                       <div
                         key={item.id}
                         className={`relative cursor-pointer group w-[400px] overflow-hidden transition-transform duration-300 ease-in-out hover:scale-105
-         lg:h-[400px] lg:even:h-[70%] ${index > 3 && "lg:odd:-translate-y-[30%]"}`}
+         lg:h-[400px] lg:even:h-[60%] ${index > 3 && "lg:odd:-translate-y-[40%]"}`}
                       >
                         <img
                           src={item.thumbnail.url}

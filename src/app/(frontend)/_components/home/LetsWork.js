@@ -9,10 +9,10 @@ const LetsWork = () => {
   };
   return (
     <div className="flex flex-col items-center mt-20">
-      <div className="lg:text-5xl md:text-4xl  text-3xl flex justify-center items-center gap-2">
-        <h1 className=" font-[900] text-white">{t("First")} </h1>
-        <span className="text-[#8c8c8f] font-[900]">{t("Second")}</span>
-      </div>
+      <h1 className=" lg:text-5xl md:text-4xl text-3xl font-black text-white">
+        LET'S WORK{" "}
+        <span className="text-[#8c8c8f] font-[900]">TOGETHER</span>{" "}
+      </h1>
       <button
         onClick={() => handleClick()}
         className="text-white text-xl rounded-3xl px-6 py-3 mt-10 bg-[#B9A14C] hover:opacity-90 hover:transition-all mb-20 "

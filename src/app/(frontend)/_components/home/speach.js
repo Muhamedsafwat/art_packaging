@@ -6,7 +6,7 @@ const Speach = () => {
   const t = useTranslations("Speach");
   const { locale } = useParams();
   return (
-    <div className="h-screen flex flex-col justify-center items-center mt-16">
+    <div className="h-screen flex flex-col justify-center max-w-5xl mx-auto items-center mt-16">
       <div className="flex flex-col md:flex-row justify-center items-center  gap-8">
         {locale === "en" ? (
           <div className=" flex flex-col justify-center">
@@ -29,8 +29,8 @@ const Speach = () => {
           <Image
             src="/Speach/Sec7.png"
             alt="Speech Section"
-            width={500}
-            height={500}
+            width={600}
+            height={600}
             quality={100}
             className="object-cover transition-transform duration-300 transform scale-110 hover:scale-125"
           />

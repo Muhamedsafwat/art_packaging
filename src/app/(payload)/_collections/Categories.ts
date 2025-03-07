@@ -27,11 +27,20 @@ const Categories: CollectionConfig = {
       label: "Title (Arabic)",
       required: true,
     },
+
     {
       name: "titleEn",
       type: "text",
       label: "Title (English)",
       required: true,
+    },
+    {
+      name: "sort",
+      type: "number",
+      label: "Sort Order",
+      required: true,
+      defaultValue: 0,
+      unique: true,
     },
   ],
 };

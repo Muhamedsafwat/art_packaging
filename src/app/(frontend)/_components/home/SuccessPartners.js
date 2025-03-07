@@ -50,7 +50,7 @@ const SuccessPartners = () => {
 
   return (
     <div className="flex flex-col items-center justify-center mt-20">
-      <h2 className="text-white font-extrabold text-center text-3xl sm:text-4xl md:text-5xl tracking-wide">
+      <h2 className="text-white font-extrabold text-center text-2sxl sm:text-3xl md:text-4xl tracking-wide">
         {t("Title")}
       </h2>
 

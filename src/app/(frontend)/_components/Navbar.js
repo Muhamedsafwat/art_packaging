@@ -47,14 +47,12 @@ export default function Navbar({ locale }) {
           />
         </Link>
 
-        <div
-          className={`hidden lg:flex ${locale === "en" ? "space-x-10" : "gap-10"}`}
-        >
+        <div className={`hidden lg:flex gap-12`}>
           {links.map((link, index) => (
             <Link
               key={`navbar_link_${index}`}
               href={link.href}
-              className="hover:text-primary mt-2 text-[20px]"
+              className="hover:text-primary mt-2 px-1 text-[20px]"
             >
               {link.label}
             </Link>
@@ -62,7 +60,7 @@ export default function Navbar({ locale }) {
 
           <button
             onClick={toggleLanguage}
-            className={`px-4 py-2 rounded-md ml-5 flex items-center space-x-2 ${
+            className={`px-4 py-2 rounded-md ml-5 flex flex-row-reverse items-center space-x-1 ${
               locale === "en" ? "flex-row-reverse" : "mr-2"
             }`}
           >
@@ -71,7 +69,7 @@ export default function Navbar({ locale }) {
               alt="Language Icon"
               className="w-10 h-5 ml-2"
             />
-            <span className="hover:text-[#d4af37] text-xl">
+            <span className="hover:text-[#d4af37] text-[16px]">
               {locale === "en" ? "العربية" : "English"}
             </span>
           </button>
@@ -79,7 +77,7 @@ export default function Navbar({ locale }) {
 
         <div className="hidden lg:flex items-center gap-x-10">
           <FaWhatsapp
-            className="text-3xl cursor-pointer text-[#d4af37]"
+            className="text-2xl cursor-pointer text-[#d4af37]"
             onClick={() =>
               window.open(
                 "https://api.whatsapp.com/send?phone=966541024824",
@@ -89,7 +87,7 @@ export default function Navbar({ locale }) {
           />
 
           <FiSearch
-            className="text-4xl cursor-pointer text-[#d4af37]"
+            className="text-2xl cursor-pointer text-[#d4af37]"
             onClick={() => setShowSearch(true)}
           />
         </div>
