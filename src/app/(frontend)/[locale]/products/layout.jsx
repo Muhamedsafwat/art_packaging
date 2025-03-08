@@ -21,10 +21,10 @@ const layout = ({ children }) => {
 
   return (
     <div className="container mx-auto">
-      <div className="mx-auto flex w-full justify-center mt-28 items-center gap-5 cursor-pointer text-white text-lg md:text-lg mb-18">
+      <div className="mx-auto flex w-full justify-center mt-28 items-center gap-2 md:gap-5 cursor-pointer text-white text-lg md:text-lg mb-18">
         <Link
           href={`/${locale}`}
-          className="hover:text-[#d4af37] font-semibold flex items-center gap-1 mb-[1px]"
+          className="hover:text-[#d4af37] text-sm md:text-md font-semibold flex items-center gap-1 mb-[1px]"
         >
           <IoHomeOutline className="text-xl mr-2 mt-[1px] font-semibold" />
           <span className="font-semibold">{t("Home")}</span>
@@ -32,14 +32,14 @@ const layout = ({ children }) => {
         <span>{">"}</span>
         <Link
           href={`/${locale}#products`}
-          className="hover:text-[#d4af37] font-semibold"
+          className="hover:text-[#d4af37] text-sm md:text-md font-semibold"
         >
           {t("Product")}
         </Link>
         <span>{">"}</span>
         <Link
           href={`/${locale}/products`}
-          className="font-semibold hover:text-[#d4af37]"
+          className="font-semibold text-sm md:text-md hover:text-[#d4af37]"
         >
           {locale == "ar" ? category.titleAr : category.titleEn}
         </Link>

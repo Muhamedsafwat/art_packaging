@@ -54,6 +54,12 @@
     "Loading" : "Loading Product"
 
   },
+  "Footer" : {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "products": "Products"
+  },
   "Loading" : "Loading Products"
 
 }

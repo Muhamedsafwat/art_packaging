@@ -50,12 +50,12 @@ const SuccessPartners = () => {
 
   return (
     <div className="flex flex-col items-center justify-center mt-20">
-      <h2 className="text-white font-extrabold text-center text-2sxl sm:text-3xl md:text-4xl tracking-wide">
+      <h2 className="text-white font-extrabold text-center text-3xl md:text-4xl tracking-wide">
         {t("Title")}
       </h2>
 
       <div className="relative w-full flex justify-center mt-20 bg-[#424245]">
-        <div className="w-full max-w-6xl px-5">
+        <div className="w-full max-w-6xl p-5">
           <Swiper
             modules={[Autoplay, Navigation]}
             spaceBetween={20}

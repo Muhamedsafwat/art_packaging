@@ -5,14 +5,13 @@ import { FaWhatsapp, FaMapMarkerAlt, FaEnvelope } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 
 export default function Footer({ locale }) {
-  const t = useTranslations("Navbar"); // استخدام الترجمة للروابط
+  const t = useTranslations("Footer"); // استخدام الترجمة للروابط
 
   const links = [
     { label: t("home"), href: `/${locale}/` },
     { label: t("about"), href: `/${locale}/about` },
     { label: t("services"), href: `/${locale}#services` },
     { label: t("products"), href: `/${locale}#products` },
-    { label: t("contact"), href: `/${locale}/contact` },
   ];
 
   const handleWhatsAppClick = () => {
@@ -32,19 +31,19 @@ export default function Footer({ locale }) {
   return (
     <footer className="bg-[#2F2E35] text-white pb-3 px-8 mt-auto block relative border-t border-white pt-10">
       <div className="container mx-auto flex flex-col items-center text-center space-y-6">
-        <div className="flex flex-wrap justify-center gap-6 text-lg">
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-md font-semibold md:text-lg">
           {links.map((link, index) => (
             <Link
               key={index}
               href={link.href}
-              className="hover:text-[#d4af37] transition-colors text-md duration-300"
+              className="hover:text-[#d4af37] transition-colorssss duration-300"
             >
               {link.label}
             </Link>
           ))}
         </div>
 
-        <div className="flex gap-8 text-3xl mt-6 mb-12">
+        <div className="flex gap-4 md:gap-8 text-3xl mt-6 mb-12">
           {[
             { icon: FaWhatsapp, onClick: handleWhatsAppClick },
             { icon: FaEnvelope, onClick: handleEmailClick },
@@ -52,14 +51,14 @@ export default function Footer({ locale }) {
           ].map((item, index) => (
             <div
               key={index}
-              className="border border-[#999] rounded-full p-4 text-[20px] text-[#999] hover:bg-[#E7E7E7] duration-200 cursor-pointer"
+              className="border border-[#999] rounded-full p-3 md:p-4 text-[20px] text-[#999] hover:bg-[#E7E7E7] duration-200 cursor-pointer"
             >
               <item.icon onClick={item.onClick} />
             </div>
           ))}
         </div>
 
-        <p className="text-white pt-10 text-xl font-semibold opacity-80">
+        <p className="text-white pt-10 text-lg md:text-xl  font-semibold opacity-80">
           Copyright @2024 ||{" "}
           <a href="https://bcoit.com/" target="_blank">
             Powered by Bcoit

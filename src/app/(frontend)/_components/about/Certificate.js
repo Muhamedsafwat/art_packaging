@@ -9,10 +9,10 @@ export default function Certificates() {
   const t = useTranslations("About");
 
   return (
-    <div className="text-center text-white mt-20">
+    <div className="text-center text-white mt-10 md:mt-20">
       <h2 className="text-2xl md:text-3xl font-bold mb-6">{t("cert")}</h2>
 
-      <div className="flex flex-col lg:flex-row justify-center items-center gap-10 px-6">
+      <div className="flex flex-col lg:flex-row justify-center items-center gap-10 px-3">
         {certificates.map((cert, index) => (
           <div
             key={index}

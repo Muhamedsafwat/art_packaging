@@ -40,17 +40,17 @@ const OurProduct = () => {
 
   return (
     <div
-      className="flex flex-col justify-center text-center mt-12"
+      className="flex flex-col justify-center text-center mt-5 md:mt-12"
       id="products"
     >
       <h2 className="text-3xl sm:text-3xl lg:text-[35px] font-bold text-white mb-8">
         {t("Title")}
       </h2>
-      <p className="text-sm sm:text-base md:text-lg lg:text-[23px] text-[#939396] lg:max-w-xlg mb-10">
+      <p className="text-sm sm:text-base md:text-lg lg:text-[23px] text-[#939396] lg:max-w-xl mb-5 md:mb-10 mx-5">
         {t("Des")}
       </p>
 
-      <div className="relative max-w-7xl w-full mx-auto px-16 mt-7">
+      <div className="relative max-w-7xl w-screen mx-auto px-5 md:px-16 mt-7">
         <Swiper
           ref={swiperRef}
           modules={[Navigation]}
@@ -74,7 +74,7 @@ const OurProduct = () => {
                       <div
                         key={item.id}
                         className={`relative cursor-pointer group w-full overflow-hidden transition-transform duration-300 ease-in-out hover:scale-105
-         lg:h-[400px] lg:even:h-[60%] ${index > 3 && "lg:odd:-translate-y-[40%]"}`}
+                        h-[300px] lg:h-[400px] lg:even:h-[60%] ${index > 3 && "lg:odd:-translate-y-[40%]"}`}
                       >
                         <img
                           src={item.thumbnail.url}

@@ -13,7 +13,7 @@ export default function About() {
 
   return (
     <div className="w-full flex flex-col">
-      <div className="relative w-full min-h-screen flex items-center justify-center">
+      <div className="relative w-full min-h-[70vh] md:min-h-screen flex items-center justify-center">
         <img
           src="/backgroundAboutUs.png"
           alt="Background"

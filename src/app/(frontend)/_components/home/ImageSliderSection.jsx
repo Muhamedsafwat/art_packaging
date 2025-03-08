@@ -20,7 +20,7 @@ const ImageSliderSection = async ({ locale }) => {
   return (
     <section
       dir="ltr"
-      className="mt-12 w-screen h-screen max-h-[700px] overflow-x-hidden"
+      className="mt-12 w-screen h-[40vh] md:h-screen max-h-[700px] overflow-x-hidden"
     >
       <Image
         alt="we care so we create"
