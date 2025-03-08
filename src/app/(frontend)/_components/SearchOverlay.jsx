@@ -15,11 +15,10 @@ export default function SearchOverlay({ showSearch, setShowSearch, locale }) {
     async function fetchProducts() {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/products`
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/products?limit=10000`
         );
         const data = await response.json();
         setProducts(data.docs);
-        console.log(data.docs);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -36,10 +35,11 @@ export default function SearchOverlay({ showSearch, setShowSearch, locale }) {
         : products.filter(
             (product) =>
               product.descriptionAr.toLowerCase().includes(searchTerm) ||
-              product.descriptionEn.toLowerCase().includes(searchTerm)
+              product.descriptionEn.toLowerCase().includes(searchTerm) ||
+              product.category.titleAr.toLowerCase().includes(searchTerm) ||
+              product.category.titleEn.toLowerCase().includes(searchTerm)
           );
     setFilteredProducts(filtered);
-    console.log(filteredProducts);
   };
 
   if (!showSearch) return null;
