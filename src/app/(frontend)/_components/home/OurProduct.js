@@ -46,7 +46,7 @@ const OurProduct = () => {
       <h2 className="text-3xl sm:text-3xl lg:text-[35px] font-bold text-white mb-8">
         {t("Title")}
       </h2>
-      <p className="text-sm sm:text-base md:text-lg lg:text-[23px] text-[#939396] lg:max-w-xl mb-5 md:mb-10 mx-5">
+      <p className="text-sm sm:text-base md:text-lg lg:text-[23px] text-[#939396] lg:max-w-xl mb-5 md:mb-10 mx-auto px-5">
         {t("Des")}
       </p>
 
