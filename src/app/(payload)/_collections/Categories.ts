@@ -4,14 +4,16 @@ const Categories: CollectionConfig = {
   slug: "categories",
   access: {
     read: () => true, // Allow public read access
+    create: () => false,
+    delete: () => false,
   },
   labels: {
-    singular: "Category",
-    plural: "Categories",
+    singular: "التصنيف",
+    plural: "التصنيفات",
   },
   admin: {
-    useAsTitle: "titleEn", // Display English title in the admin panel
-    group: "Products",
+    useAsTitle: "titleAr", // Display English title in the admin panel
+    group: "ادارة المنتجات",
   },
   fields: [
     {
@@ -19,25 +21,25 @@ const Categories: CollectionConfig = {
       type: "upload",
       relationTo: "media", // Assuming you have a media collection for storing images
       required: true,
-      label: "Category Thumbnail",
+      label: "صورة التصنيف",
     },
     {
       name: "titleAr",
       type: "text",
-      label: "Title (Arabic)",
+      label: "الاسم بالعربية",
       required: true,
     },
 
     {
       name: "titleEn",
       type: "text",
-      label: "Title (English)",
+      label: "الاسم بالانجليزية",
       required: true,
     },
     {
       name: "sort",
       type: "number",
-      label: "Sort Order",
+      label: "الترتيب",
       required: true,
       defaultValue: 0,
       unique: true,

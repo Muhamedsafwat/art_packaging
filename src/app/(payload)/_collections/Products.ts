@@ -6,18 +6,18 @@ const Products: CollectionConfig = {
     read: () => true, // Allow public read access
   },
   labels: {
-    singular: "Product",
-    plural: "Products",
+    singular: "المنتج",
+    plural: "المنتجات",
   },
   admin: {
-    useAsTitle: "descriptionEn", // Display English description in the admin panel
-    group: "Products",
+    useAsTitle: "descriptionAr", // Display English description in the admin panel
+    group: "ادارة المنتجات",
   },
   fields: [
     {
       name: "images",
       type: "array",
-      label: "Product Images",
+      label: "صور المنتج",
       fields: [
         {
           name: "image",
@@ -31,17 +31,18 @@ const Products: CollectionConfig = {
       name: "category",
       type: "relationship",
       relationTo: "categories", // Assuming categories are stored in a categories collection
+      label: "التصنيف",
     },
     {
       name: "descriptionAr",
       type: "textarea",
-      label: "Description (Arabic)",
+      label: "االوصف بالعربية",
       required: true,
     },
     {
       name: "descriptionEn",
       type: "textarea",
-      label: "Description (English)",
+      label: "الوصف بالانجليزية",
       required: true,
     },
   ],

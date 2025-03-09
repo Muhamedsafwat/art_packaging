@@ -4,14 +4,16 @@ const Services: CollectionConfig = {
   slug: "services",
   access: {
     read: () => true, // Allow public read access
+    create: () => false,
+    delete: () => false,
   },
   labels: {
-    singular: "Service",
-    plural: "Services",
+    singular: "الخدمة",
+    plural: "الخدمات",
   },
   admin: {
-    useAsTitle: "titleEn", // Display English title in the admin panel
-    group: "Home Page",
+    useAsTitle: "titleAr", // Display English title in the admin panel
+    group: "الصفحة الرئيسية",
   },
   fields: [
     {
@@ -19,30 +21,30 @@ const Services: CollectionConfig = {
       type: "upload",
       relationTo: "media", // Assuming you have a media collection for icons
       required: true,
-      label: "Service Icon",
+      label: "الصورة",
     },
     {
       name: "titleAr",
       type: "text",
-      label: "Title (Arabic)",
+      label: "الاسم بالعربية",
       required: true,
     },
     {
       name: "titleEn",
       type: "text",
-      label: "Title (English)",
+      label: "الاسم بالانجليزية",
       required: true,
     },
     {
       name: "descriptionAr",
       type: "textarea",
-      label: "Description (Arabic)",
+      label: "الوصف بالعربية",
       required: true,
     },
     {
       name: "descriptionEn",
       type: "textarea",
-      label: "Description (English)",
+      label: "الوصف بالانجليزية",
       required: true,
     },
   ],
