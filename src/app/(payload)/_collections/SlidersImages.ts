@@ -2,9 +2,9 @@ import { GlobalConfig } from "payload";
 
 const SlidersImages: GlobalConfig = {
   slug: "sliders-images",
-  label: "Sliders Images",
+  label: "صور السلايدر",
   admin: {
-    group: "Home Page",
+    group: "الصفحة الرئيسية",
   },
   access: {
     read: () => true, // Allow public read access
@@ -13,14 +13,14 @@ const SlidersImages: GlobalConfig = {
     {
       name: "partners",
       type: "relationship",
-      label: "Partners Images",
+      label: "صور السلايدر",
       relationTo: "media",
       hasMany: true,
     },
     {
       name: "sliderImages",
       type: "relationship",
-      label: "Slider Images",
+      label: "شركاء النجاح",
       relationTo: "media",
       hasMany: true,
     },
