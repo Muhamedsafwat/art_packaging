@@ -29,7 +29,11 @@ const SepProducts = () => {
           currentPage++;
         }
         console.log(allProducts);
-        console.log(category);
+        allProducts.forEach((p) => {
+          if (p.category?.titleAr?.includes("بكجات")) {
+            console.log(`[${p.category.titleAr}]`);
+          }
+        });
         const filtered = allProducts.filter(
           (product) =>
             product.category &&
