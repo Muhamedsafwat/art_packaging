@@ -33,9 +33,8 @@ const SepProducts = () => {
         const filtered = allProducts.filter(
           (product) =>
             product.category &&
-            product.category.titleAr &&
-            product.category.titleAr.trim().normalize() ===
-              category.titleAr.trim().normalize()
+            product.category.titleEn &&
+            product.category.titleEn === category.titleEn
         );
 
         setFilteredProducts(filtered);
