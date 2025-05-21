@@ -1,5 +1,5 @@
 "use client";
-import { useParams, useRouter, usePathname } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -13,6 +13,7 @@ const SepProducts = () => {
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   useEffect(() => {
     async function fetchAllProducts(category) {
       let allProducts = [];
@@ -23,23 +24,29 @@ const SepProducts = () => {
         while (hasNextPage) {
           const response = await fetch(`/api/products?page=${currentPage}`);
           const data = await response.json();
-          // console.log(data.docs[0].category.titleEn);
           allProducts = [...allProducts, ...data.docs];
           hasNextPage = data.hasNextPage;
           currentPage++;
         }
-        console.log(allProducts);
-        allProducts.forEach((p) => {
-          if (p.category?.titleAr?.includes("بكجات")) {
-            console.log(`[${p.category.titleAr}]`);
-          }
+
+        console.log("All Products:", allProducts);
+
+        // Locale-aware filtering
+        const filtered = allProducts.filter((product) => {
+          const productTitle =
+            locale === "ar"
+              ? product.category?.titleAr
+              : product.category?.titleEn;
+
+          const selectedTitle =
+            locale === "ar" ? category.titleAr : category.titleEn;
+
+          return (
+            productTitle &&
+            selectedTitle &&
+            productTitle.trim().normalize() === selectedTitle.trim().normalize()
+          );
         });
-        const filtered = allProducts.filter(
-          (product) =>
-            product.category &&
-            product.category.titleEn &&
-            product.category.titleEn === category.titleEn
-        );
 
         setFilteredProducts(filtered);
         setLoading(false);
@@ -53,9 +60,9 @@ const SepProducts = () => {
     if (storedCategory) {
       fetchAllProducts(JSON.parse(storedCategory));
     } else {
-      console.error("No category found in sessionStorage.");
+      console.error("No category found in localStorage.");
     }
-  }, []);
+  }, [locale]);
 
   return (
     <>
@@ -68,10 +75,14 @@ const SepProducts = () => {
         </div>
       ) : (
         <div className="grid lg:grid-cols-3 md:grid-cols-2 justify-items-center gap-12 my-16 w-full max-w-[1200px] mx-auto px-5">
-          {filteredProducts.map((product, index) => (
-            <Link key={index} href={`products${"/" + product.id}`}>
+          {filteredProducts.map((product) => (
+            <Link
+              key={product._id || product.id}
+              href={`/products/${product.id}`}
+            >
               <img
                 src={product.images?.[0]?.image?.url}
+                alt={product.title}
                 className="w-full object-contain rounded-lg hover:scale-105 transition-all duration-500 ease-in-out cursor-pointer"
               />
             </Link>
