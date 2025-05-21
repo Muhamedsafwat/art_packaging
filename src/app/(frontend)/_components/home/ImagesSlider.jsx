@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react";
 import Slider from "react-infinite-logo-slider";
 
 const ImagesSlider = ({ images }) => {
-  const [slideWidth, setSlideWidth] = useState(150); // Default width
+  const [slideWidth, setSlideWidth] = useState(150);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const updateWidth = () => {
@@ -18,11 +19,14 @@ const ImagesSlider = ({ images }) => {
       }
     };
 
-    updateWidth(); // Set initial width
+    updateWidth();
     window.addEventListener("resize", updateWidth);
+    setMounted(true); // Now we are on the client
 
     return () => window.removeEventListener("resize", updateWidth);
   }, []);
+
+  if (!mounted) return null; // Don't render on server
 
   return (
     <div className="-rotate-6 mt-8 md:mt-20 w-[112vw] md:w-[105vw] -translate-x-10">
