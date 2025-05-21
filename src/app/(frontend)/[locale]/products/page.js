@@ -30,7 +30,10 @@ const SepProducts = () => {
         }
         console.log(allProducts);
         const filtered = allProducts.filter(
-          (product) => product.category.titleAr == category.titleAr
+          (product) =>
+            product.category &&
+            product.category.titleAr &&
+            product.category.titleAr === category.titleAr
         );
 
         setFilteredProducts(filtered);
