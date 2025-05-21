@@ -28,10 +28,11 @@ const SepProducts = () => {
           hasNextPage = data.hasNextPage;
           currentPage++;
         }
-
+        console.log(allProducts);
         const filtered = allProducts.filter(
           (product) => product.category.titleAr == category.titleAr
         );
+
         setFilteredProducts(filtered);
         setLoading(false);
       } catch (error) {
