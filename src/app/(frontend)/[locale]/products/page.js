@@ -29,11 +29,13 @@ const SepProducts = () => {
           currentPage++;
         }
         console.log(allProducts);
+        console.log(category);
         const filtered = allProducts.filter(
           (product) =>
             product.category &&
             product.category.titleAr &&
-            product.category.titleAr === category.titleAr
+            product.category.titleAr.trim().normalize() ===
+              category.titleAr.trim().normalize()
         );
 
         setFilteredProducts(filtered);
