@@ -21,7 +21,9 @@ const SepProducts = () => {
 
       try {
         while (hasNextPage) {
-          const response = await fetch(`/api/products?page=${currentPage}`);
+          const response = await fetch(
+            `/api/products?page=${currentPage}&depth=2`
+          );
           const data = await response.json();
           // console.log(data.docs[0].category.titleEn);
           allProducts = [...allProducts, ...data.docs];
@@ -36,6 +38,7 @@ const SepProducts = () => {
             product.category.titleEn &&
             product.category.titleEn === category.titleEn
         );
+        console.log(filtered);
 
         setFilteredProducts(filtered);
         setLoading(false);
